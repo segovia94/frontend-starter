@@ -1,0 +1,14 @@
+# Node modules
+node_modules
+
+# Bower Components
+bower_components
+
+# PHPStorm
+.idea
+
+# Source Maps
+*.map
+
+# Custom local gulp config
+gulp-config--custom.yml

@@ -1,0 +1,20 @@
+// Reset some browser defaults
+
+// https://github.com/at-import/toolkit#kickstart
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}

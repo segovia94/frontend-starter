@@ -1,0 +1,38 @@
+{
+  "name": "Frontend Starter",
+  "version": "1.0.0",
+  "description": "This is a starter kit for doing frontend work",
+  "main": "gulpfile.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/segovia94/frontend-starter"
+  },
+  "author": "Mark Miller",
+  "devDependencies": {
+    "autoprefixer": "^6.1.2",
+    "bower": "^1.7.7",
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-flatten": "^0.2.0",
+    "gulp-help": "^1.6.1",
+    "gulp-if": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-sass-glob": "0.0.8",
+    "gulp-sass-lint": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "js-yaml": "^3.4.6",
+    "lodash": "^3.10.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

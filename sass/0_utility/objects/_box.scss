@@ -1,0 +1,93 @@
+// The box object simply boxes off content.
+// Adapted from Inuit CSS https://github.com/inuitcss/objects.box/blob/master/_objects.box.scss
+$o-box-spacing-unit:          16px !default; // This is 1em at default.
+$o-box-spacing-unit--tiny:    round($o-box-spacing-unit / 4) !default;
+$o-box-spacing-unit--small:   round($o-box-spacing-unit / 2) !default;
+$o-box-spacing-unit--large:   round($o-box-spacing-unit * 2) !default;
+$o-box-spacing-unit--huge:    round($o-box-spacing-unit * 4) !default;
+
+// Enable or disable object classes
+$o-box-enable--flush:   false !default;
+$o-box-enable--tiny:    false !default;
+$o-box-enable--small:   false !default;
+$o-box-enable--large:   false !default;
+$o-box-enable--huge:    false !default;
+
+// Box Object: The box object simply boxes off content.
+%box {
+  display: block; // So we can apply the `.box` class to naturally-inline elements.
+  padding: $o-box-spacing-unit;
+
+  // Clearfix
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Box Object: Flush `Modifier`
+// Removes all padding from the box.
+%box--flush {
+  padding: 0;
+}
+
+// Box Object: Tiny box
+%box--tiny {
+  padding: $o-box-spacing-unit--tiny;
+}
+
+// Box Object: Small box
+%box--small {
+  padding: $o-box-spacing-unit--small;
+}
+
+// Box Object: Large box
+%box--large {
+  padding: $o-box-spacing-unit--large;
+}
+
+// Box Object: Huge box
+%box--huge {
+  padding: $o-box-spacing-unit--huge;
+}
+
+
+// Assign placeholders to classes
+.box {
+  @extend %box;
+}
+
+@if ($o-box-enable--flush == true) {
+  .box--flush {
+    @extend %box--flush;
+  }
+}
+
+@if ($o-box-enable--tiny == true) {
+  .box--tiny {
+    @extend %box--tiny;
+  }
+}
+
+@if ($o-box-enable--small == true) {
+  .box--small {
+    @extend %box--small;
+  }
+}
+
+@if ($o-box-enable--large == true) {
+  .box--large {
+    @extend %box--large;
+  }
+}
+
+@if ($o-box-enable--huge == true) {
+  .box--huge {
+    @extend %box--huge;
+  }
+}

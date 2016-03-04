@@ -1,0 +1,61 @@
+# This config may be overridden by creating a gulp-config--custom.yml file
+css:
+  enabled: true
+  src:
+    - sass/**/*.scss
+  vendor:
+    - css/vendor/**/*.css
+  dest: css/
+  flattenDestOutput: true
+  lint:
+    enabled: false
+    failOnError: false
+    # Add to the main src glob - useful for exclusions with `!`
+    extraSrc:
+#      - '!excluded-file.scss'
+  # enables additional debugging information in the output file as CSS comments - only use when necessary
+  sourceComments: false
+  sourceMapEmbed: false
+  # tell the compiler whether you want 'expanded' or 'compressed' output code
+  outputStyle: compressed
+  autoPrefixerBrowsers: # https://github.com/ai/browserslist#queries
+    - last 2 versions
+    - IE >= 9
+  includePaths:
+    - ./node_modules
+
+js:
+  enabled: true
+  src:
+    - js/vendor/**/*.js
+    - js/**/*.js
+  dest: js/
+  destName: scripts.js
+  sourceMapEmbed: false
+  uglify: true
+  babel: false
+  eslint:
+    enabled: false
+    # Add to the main src glob - useful for exclusions with `!`
+    extraSrc:
+      - '!js/vendor/**/*.js'
+#      - gulpfile.js
+#      - gulp_tasks/**/*.js
+
+browserSync:
+  enabled: true
+  port: 3050
+  watchFiles:
+    - '**/*.html'
+#  domain: mydomain.local
+  baseDir: ./
+  startPath: ''
+  openBrowserAtStart: true
+  # requires above to be true; allows non-default browser to open
+  browser:
+    - Google Chrome
+  # Tunnel the Browsersync server through a random Public URL
+  # -> http://randomstring23232.localtunnel.me
+  tunnel: false
+  reloadDelay: 50
+  reloadDebounce: 750

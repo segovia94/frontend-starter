@@ -1,0 +1,210 @@
+// Media Object
+// Adapted from Inuit CSS https://github.com/inuitcss/objects.media/blob/master/_objects.media.scss
+//
+// The media object is an image to the left, with descriptive
+// content to the right. This is using flexbox with a legacy fallback to floats.
+//
+// <div class="media">
+//   <div class="media__figure">
+//     <img src="http://placehold.it/135x135" />
+//   </div>
+//   <div class="media__body">
+//     <h2>Title to the content</h2>
+//     <p>content</p>
+//   </div>
+// </div>
+
+// Predefine the variables below in order to alter and enable specific features.
+$o-media-gutter:          1em !default;
+$o-media-gutter--tiny:    round($o-media-gutter / 4) !default;
+$o-media-gutter--small:   round($o-media-gutter / 2) !default;
+$o-media-gutter--large:   round($o-media-gutter * 2) !default;
+$o-media-gutter--huge:    round($o-media-gutter * 4) !default;
+
+$o-media-enable--tiny:    false !default;
+$o-media-enable--small:   false !default;
+$o-media-enable--large:   false !default;
+$o-media-enable--huge:    false !default;
+$o-media-enable--rev:     false !default;
+$o-media-enable--flush:   false !default;
+
+// Media Object wrapper
+%media {
+  display: flex;
+  align-items: flex-start;
+
+  .no-flexbox & {
+    display: block;
+
+    // Clearfix
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+// Media Object: Figure (image) `Element`
+%media__figure {
+  margin-right: $o-media-gutter;
+
+  .no-flexbox & {
+    float: left;
+  }
+}
+
+// Media Object: Body (content) `Element`
+%media__body {
+  display: block;
+  flex: 1;
+
+  .no-flexbox & {
+    overflow: hidden;
+  }
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Media Object: Reverse `Modifier`
+// Flips the Figure to the opposite (right) side
+%media--rev {
+  flex-direction: row-reverse;
+
+  > %media__figure {
+    margin-right: 0;
+    margin-left: $o-media-gutter;
+
+    .no-flexbox & {
+      float: right;
+    }
+  }
+}
+
+// Media Object: Flush `Modifier`
+// No space between the figure (image) and body (content)
+%media--flush {
+
+  > %media__figure {
+    margin-right: 0;
+    margin-left:  0;
+  }
+
+}
+
+// Media Object: Tiny `Modifier`
+// Shortens space between the figure and body
+%media--tiny {
+
+  > %media__figure {
+    margin-right: $o-media-gutter--tiny;
+  }
+
+  &%media--rev {
+    > %media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--tiny;
+    }
+  }
+}
+
+// Media Object: Small `Modifier`
+// Greatly shortens space between the figure and body
+%media--small {
+
+  > %media__figure {
+    margin-right: $o-media-gutter--small;
+  }
+
+  &%media--rev {
+    > %media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--small;
+    }
+  }
+}
+
+// Media Object: Large `Modifier`
+// Adds more space between the figure and body
+%media--large {
+
+  > %media__figure {
+    margin-right: $o-media-gutter--large;
+  }
+
+  &%media--rev {
+    > %media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--large;
+    }
+  }
+}
+
+// Media Object: Huge `Modifier`
+// Greatly adds more space between the figure and body
+%media--huge {
+
+  > %media__figure {
+    margin-right: $o-media-gutter--huge;
+  }
+
+  &%media--rev {
+    > %media__figure {
+      margin-right: 0;
+      margin-left: $o-media-gutter--huge;
+    }
+  }
+}
+
+
+// Assign placeholders to classes
+.media {
+  @extend %media;
+}
+
+.media__figure {
+  @extend %media__figure;
+}
+
+.media__body {
+  @extend %media__body;
+}
+
+@if ($o-media-enable--rev == true) {
+  .media--rev {
+    @extend %media--rev;
+  }
+}
+
+@if ($o-media-enable--flush == true) {
+  .media--flush {
+    @extend %media--flush;
+  }
+}
+
+@if ($o-media-enable--tiny == true) {
+  .media--tiny {
+    @extend %media--tiny;
+  }
+}
+
+@if ($o-media-enable--small == true) {
+  .media--small {
+    @extend %media--small;
+  }
+}
+
+@if ($o-media-enable--large == true) {
+  .media--large {
+    @extend %media--large;
+  }
+}
+
+@if ($o-media-enable--huge == true) {
+  .media--huge {
+    @extend %media--huge;
+  }
+}

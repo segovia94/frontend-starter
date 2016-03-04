@@ -1,0 +1,22 @@
+{
+  "name": "Frontend Starter",
+  "version": "1.0.0",
+  "description": "Components and dependencies for a Frontend Starterkit",
+  "keywords": [
+    "sass"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "~2.6.1",
+    "sass-toolkit": "~2.9.0",
+    "normalize-scss": "~4.0.3",
+    "singularity": "~1.7.0"
+  }
+}

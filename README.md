@@ -1,18 +1,20 @@
 # Frontend Setup
 
+This repository is meant as a one-time starterkit when creating a new web project. It offers default Sass folder structure which will be compiled with Gulp.
+
 ### Prerequesites
 
 You'll need [node.js](http://nodejs.org).
 
-After installing Node you should install Gulp and Bower globally
+After installing Node you should install Gulp and Bower globally (you may need to use `sudo` on a Mac if you get errors).
 
 ```
-$ sudo npm install --global gulp bower
+$ npm install --global gulp bower
 ```
 
 ## Install and setup
 
-After cloning and changing into that directory, run this to install dependencies (you may need to use `sudo` if you get errors):
+After cloning and changing into that directory, run this to install dependencies (you may need to use `sudo` on a Mac if you get errors):
 
     $ npm install
     $ bower install
@@ -25,22 +27,13 @@ Finally, to do an intial build of the site and start watching for changes run `g
 $ gulp
 ```
 
-## Assets (CSS & JS)
-
-To add either CSS or JS to Pattern Lab, use one of these methods:
-
 ### Bower
 
-Installing any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag will get the `main` asset's `<link>` or `<script>` tags added to Pattern Lab automatically via [wiredep](https://github.com/taptapship/wiredep). So, you can search for [anything that Bower can install](http://bower.io/search/) and run:
+Bower is a package manager for the web. It is useful for adding third party libraries for both development and site inclusion.
+
+Install any [Bower](http://bower.io) component with the `--save` or `--save-dev` flag. You can search for [anything that Bower can install](http://bower.io/search/) and run:
 
     $ bower install {thing} --save
-
-### Editing the head or foot partial
-
-If you want the most direct access, which the above method injects into, then just head to one of these files:
-
-- `pattern-lab/source/_patterns/00-atoms/00-meta/_00-head.mustache`
-- `pattern-lab/source/_patterns/00-atoms/00-meta/_01-foot.mustache`
 
 ## About Gulp
 
@@ -67,13 +60,3 @@ You can double click `help` to see descriptions of available tasks
 ### BrowserSync
 
 BrowserSync is being used by Gulp to allow live reloading so that changes will be injected automatically into the site without having to reload.
-
-
-
-## About Pattern Lab
-- [Pattern Lab Website](http://patternlab.io/)
-- [About Pattern Lab](http://patternlab.io/about.html)
-- [Documentation](http://patternlab.io/docs/index.html)
-- [Demo](http://demo.patternlab.io/)
-
-The PHP version of Pattern Lab is, at its core, a static site generator. It combines platform-agnostic assets, like the [Mustache](http://mustache.github.io/)-based patterns and the JavaScript-based viewer, with a PHP-based "builder" that transforms and dynamically builds the Pattern Lab site. By making it a static site generator, Pattern Lab strongly separates patterns, data, and presentation from build logic.

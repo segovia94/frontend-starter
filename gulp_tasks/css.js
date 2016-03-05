@@ -33,7 +33,8 @@ module.exports = function (gulp, config, tasks) {
       }))
       .pipe(sass({
         outputStyle: config.css.outputStyle,
-        sourceComments: config.css.sourceComments
+        sourceComments: config.css.sourceComments,
+        includePaths: config.bowerFiles.includePaths
       }).on('error', sass.logError))
       .pipe(postcss(
         [
@@ -91,9 +92,7 @@ module.exports = function (gulp, config, tasks) {
       .pipe(sassLint.format())
       .pipe(gulpif(config.css.lint.failOnError, sassLint.failOnError()));
   });
-  if (config.css.lint.enabled) {
-    tasks.validate.push('validate:css');
-  }
+  tasks.validate.push('validate:css');
 
 
   // Watch for changes

@@ -2,7 +2,7 @@
 var browserSync = require('browser-sync').create('server');
 var _ = require('lodash');
 
-module.exports = function(gulp, config, tasks) {
+module.exports = function (gulp, config, tasks) {
   var watchFiles = [];
 
   // Define CSS files to watch
@@ -17,7 +17,7 @@ module.exports = function(gulp, config, tasks) {
 
   // Define specific files to watch which have been added through config
   if (config.browserSync.watchFiles) {
-    config.browserSync.watchFiles.forEach(function(file) {
+    config.browserSync.watchFiles.forEach(function (file) {
       watchFiles.push(file);
     });
   }
@@ -36,7 +36,8 @@ module.exports = function(gulp, config, tasks) {
       proxy: config.browserSync.domain,
       startPath: config.browserSync.startPath
     });
-  } else {
+  }
+  else {
     _.merge(options, {
       server: {
         baseDir: config.browserSync.baseDir
@@ -44,7 +45,7 @@ module.exports = function(gulp, config, tasks) {
       startPath: config.browserSync.startPath
     });
   }
-  gulp.task('serve', 'Create a local server using BrowserSync', function() {
+  gulp.task('serve', 'Create a local server using BrowserSync', function () {
     return browserSync.init(options);
   });
   tasks.default.push('serve');

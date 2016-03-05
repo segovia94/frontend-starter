@@ -45,6 +45,12 @@ js:
 bowerFiles:
   enabled: true
   dir: bower_components
+  includePaths:
+    - bower_components/singularity/stylesheets
+    - bower_components/breakpoint-sass/stylesheets
+    - bower_components/sass-toolkit/stylesheets
+    - bower_components/support-for/sass
+    - bower_components/normalize.scss/sass
 
 browserSync:
   enabled: true

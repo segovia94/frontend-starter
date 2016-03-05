@@ -11,15 +11,16 @@ try {
   fs.statSync(customConfigFile);
   var customConfig = yaml.safeLoad(fs.readFileSync(customConfigFile, 'utf8'));
   config = _.merge(config, customConfig);
-} catch(e) {
+}
+catch (e) {
   console.log('Add a gulp-config--custom.yml file for any custom configuration.');
 }
 
 var tasks = {
-  'compile': [],
-  'watch': [],
-  'validate': [],
-  'default': []
+  compile: [],
+  watch: [],
+  validate: [],
+  default: []
 };
 
 if (config.browserSync.enabled) {

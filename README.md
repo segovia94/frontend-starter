@@ -103,5 +103,12 @@ You can double click `help` to see descriptions of available tasks
 
 BrowserSync is being used by Gulp to allow live reloading so that changes will be injected automatically into the site without having to reload.
 
+When doing local development with a local server like [MAMP](https://www.mamp.info/en/) or [WAMP](http://www.wampserver.com/en/) you will want to add a `domain` option to a `gulp-config--custom.yml` file.
+
+```yaml
+browserSync:
+  domain: mydomain.local
+```
+
 - [BrowserSync Website](https://www.browsersync.io/)
 - [Example Video](https://youtu.be/907K7nqYesg)

@@ -101,9 +101,6 @@ module.exports = function (gulp, config, tasks) {
     if (config.css.lint.enabled) {
       tasks.push('validate:css');
     }
-    if (config.css.sassdoc.enabled) {
-      tasks.push('docs:css');
-    }
     return gulp.watch(config.css.src, tasks);
   });
   tasks.watch.push('watch:css');

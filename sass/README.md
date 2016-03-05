@@ -54,8 +54,7 @@ Prefix layout classes with `.l-` which will make reading through html easy to sp
 
 For Example:
 ```scss
-.l-header {}
-.l-footer {}
+.l-container {}
 ```
 
 ## Files

@@ -1,4 +1,5 @@
 'use strict';
+var mainBowerFiles = require('main-bower-files');
 var cached = require('gulp-cached');
 var eslint = require('gulp-eslint');
 var sourcemaps = require('gulp-sourcemaps');
@@ -10,10 +11,26 @@ module.exports = function (gulp, config, tasks) {
 
   // Compile javascript
   gulp.task('js', 'Compile javascript, concat and uglify.', function (done) {
-    return gulp.src(config.js.src)
+    var sources = [];
+
+    // Add Bower files
+    if (config.bowerFiles.enabled) {
+      sources = mainBowerFiles({
+        paths: {
+          bowerDirectory: config.bowerFiles.dir
+        },
+        filter: '**/*.js'
+      });
+    }
+
+    sources = sources.concat(config.js.src);
+
+    return gulp.src(sources)
       .pipe(sourcemaps.init())
       .pipe(concat(config.js.destName))
-      .pipe(gulpif(config.js.uglify, uglify()))
+      .pipe(gulpif(config.js.uglify, uglify(
+        gulpif(config.js.preserveLicense, { preserveComments: 'license' })
+      )))
       .pipe(sourcemaps.write((config.js.sourceMapEmbed) ? null : './'))
       .pipe(gulp.dest(config.js.dest));
   });

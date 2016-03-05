@@ -33,7 +33,7 @@ js:
   destName: scripts.js
   sourceMapEmbed: false
   uglify: true
-  babel: false
+  preserveLicense: false
   eslint:
     enabled: false
     # Add to the main src glob - useful for exclusions with `!`
@@ -41,6 +41,10 @@ js:
       - '!js/vendor/**/*.js'
 #      - gulpfile.js
 #      - gulp_tasks/**/*.js
+
+bowerFiles:
+  enabled: true
+  dir: bower_components
 
 browserSync:
   enabled: true

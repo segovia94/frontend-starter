@@ -1,4 +1,5 @@
 'use strict';
+var mainBowerFiles = require('main-bower-files');
 var sassGlob = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
@@ -56,9 +57,22 @@ module.exports = function (gulp, config, tasks) {
 
   // Vendor compile
   gulp.task('css:vendor', 'Compile all vendor css into a single file', function () {
-    return gulp.src(config.css.vendor)
+    var sources = [];
+
+    // Add Bower files
+    if (config.bowerFiles.enabled) {
+      sources = mainBowerFiles({
+        paths: {
+          bowerDirectory: config.bowerFiles.dir
+        },
+        filter: '**/*.css'
+      });
+    }
+
+    sources = sources.concat(config.css.vendor);
+
+    return gulp.src(sources)
       .pipe(concat('vendor.css'))
-      //.pipe(cssnano())
       .pipe(gulpif(config.css.outputStyle === 'compressed', cssnano()))
       .pipe(gulp.dest(config.css.dest));
   });

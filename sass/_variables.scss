@@ -1,3 +1,209 @@
 // Site-wide Variables
 
-$spacing-unit: 1em;
+
+// Base colors
+// -------------------------
+
+$black:                   #000 !default;
+$white:                   #fff !default;
+
+
+// Grays
+// -------------------------
+
+$gray-darker:             lighten($black, 13.5%) !default; // #222
+$gray-dark:               lighten($black, 20%) !default;   // #333
+$gray:                    lighten($black, 33.5%) !default; // #555
+$gray-light:              lighten($black, 60%) !default;   // #999
+$gray-lighter:            lighten($black, 93.5%) !default; // #eee
+
+
+// Brand colors
+// -------------------------
+
+$brand--primary:          #0275d8 !default;
+$brand--success:          #5cb85c !default;
+$brand--warning:          #f0ad4e !default;
+$brand--danger:           #d9534f !default;
+$brand--info:             #5bc0de !default;
+$brand--gray:             $gray !default;
+
+
+// Links
+// -------------------------
+
+$link-color:              blue !default;
+$link-color--hover:       darken($link-color, 15%) !default;
+
+
+// Typography
+// -------------------------
+
+$font-color:              #333 !default;
+
+$font-family--sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family--serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family--monospace:  Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$font-family:             $font-family--sans-serif !default;
+$font-family--headings:   $font-family--serif !default;
+
+$line-height:             24px !default; // This is used by the font-size() mixin
+
+$font-size:               16px !default; // This is used by the font-size() mixin
+$font-size--large:        ceil($font-size * 1.25) !default; // ~20px
+$font-size--small:        ceil($font-size * 0.85) !default; // ~14px
+
+$font-weight:             normal !default;
+$font-weight--light:      lighter !default;
+$font-weight--bold:       bold !default;
+
+
+// Default Spacing Units
+// -------------------------
+
+$spacer:            1em !default;
+$spacer--tiny:      $spacer / 4 !default;
+$spacer--small:     $spacer / 2 !default;
+$spacer--large:     $spacer * 2 !default;
+$spacer--huge:      $spacer * 4 !default;
+
+$fixed-spacer:        $font-size !default; // This is 1em at default.
+$fixed-spacer--tiny:  $fixed-spacer / 4 !default;
+$fixed-spacer--small: $fixed-spacer / 2 !default;
+$fixed-spacer--large: $fixed-spacer * 2 !default;
+$fixed-spacer--huge:  $fixed-spacer * 4 !default;
+
+
+// Radius
+// -------------------------
+
+$border-radius:           5px !default;
+$border-radius--large:    10px !default;
+$border-radius--small:    3px !default;
+
+
+// Forms
+// -------------------------
+
+$input-bg:                $white !default;
+$input-bg--disabled:      $gray-lighter !default;
+
+$input-color:             $gray !default;
+$input-border--color:     #ccc !default;
+$input-border--radius:    $border-radius !default;
+$input-border--focus:     #66afe9 !default;
+
+$input-height:            $spacer--large !default;
+
+$legend-color:            $gray-dark !default;
+$legend-border--color:    #e5e5e5 !default;
+
+
+// Miscellaneous
+// -------------------------
+
+// Hr border color
+$hr-border:               $brand--primary !default;
+
+// Default transition time
+$transition-time:         0.3s !default;
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindex-component-bg:     800 !default;
+$zindex-component-mg:     810 !default;
+$zindex-component-fg:     820 !default;
+$zindex-navbar:           830 !default;
+$zindex-dropdown:         840 !default;
+$zindex-popover:          850 !default;
+$zindex-tooltip:          860 !default;
+$zindex-navbar-fixed:     870 !default;
+$zindex-modal-bg:         1000 !default;
+$zindex-modal:            1050 !default;
+
+
+// Object Overrides
+// -------------------------
+// Override objects here or enable modifiers like $o-media-enable--flush
+$o-media-gutter           $spacer !default;
+$o-box-spacing-unit       $fixed-spacer !default;
+
+
+// Container sizes
+// -------------------------
+
+// Small screen / tablet
+$container-width:         95% !default;
+
+// Medium screen / desktop
+$container-width--md:     90% !default;
+
+// Large screen / wide desktop
+$container-width--lg:     85% !default;
+
+// X Large screen / huge desktop
+$container-width--xlg:    75% !default;
+
+// Container margin space
+$container-space:         (100% - $container-width) / 2 !default;
+$container-space--md:     (100% - $container-width--md) / 2 !default;
+$container-space--lg:     (100% - $container-width--lg) / 2 !default;
+$container-space--xlg:    (100% - $container-width--xlg) / 2 !default;
+
+
+// Breakpoint Media Queries
+// -------------------------
+
+$media-small:             480px !default;
+$media-narrow:            768px !default;
+$media-medium:            992px !default;
+$media-wide:              1200px !default;
+$media-huge:              1600px !default;
+
+$media-small-max:         $media-small - 1px !default;
+$media-narrow-max:        $media-narrow - 1px !default;
+$media-medium-max:        $media-medium - 1px !default;
+$media-wide-max:          $media-wide - 1px !default;
+$media-huge-max:          $media-huge - 1px !default;
+
+// Create breakpoints
+// These are what should be used in media queries or @include breakpoint() mixins
+$bp-small:                $media-small $media-narrow-max !default;
+$bp-narrow:               $media-narrow $media-medium-max !default;
+$bp-medium:               $media-medium $media-wide-max !default;
+$bp-wide:                 $media-wide $media-huge-max !default;
+$bp-huge:                 $media-huge !default;
+
+$bp-small--up:            $media-small !default;
+$bp-narrow--up:           $media-narrow !default;
+$bp-medium--up:           $media-medium !default; // This is use for ie8 and down
+$bp-wide--up:             $media-wide !default;
+
+$bp-small--down:          max-width $media-small-max !default;
+$bp-narrow--down:         max-width $media-narrow-max !default;
+$bp-medium--down:         max-width $media-medium-max !default;
+$bp-wide--down:           max-width $media-wide-max !default;
+$bp-huge--down:           max-width $media-huge-max !default;
+
+$bp-narrow--landscape:    ($bp-narrow--down) (orientation landscape) !default;
+
+
+// Setup singularity grid
+// -------------------------
+
+// Grid sizes
+@include add-grid(1); // Mobile
+@include add-grid(4 4 4 at $bp-medium--up);
+
+// Gutters
+@include add-gutter(30px);
+
+// Uncomment to turn on debugging for grids
+//.l-container {
+//  @include sgs-change("debug", true);
+//  @include background-grid($color: blue);
+//}

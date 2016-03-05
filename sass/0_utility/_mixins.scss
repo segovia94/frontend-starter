@@ -1,1 +1,93 @@
 // Mixins
+
+// Font Sizing: Use REMs with a pixel fallback for font sizing.
+// Adapted from Inuit CSS https://github.com/inuitcss/tools.mixins/blob/master/_tools.mixins.scss
+// @group Fonts
+// @param {string} $font-size - Font size in Pixels. Ex. 16px
+// @param {string} $line-height [auto] - Line height for the font
+// @output font-size: 16px; <br/> font-size: 1rem; <br/> line-height: auto;
+@mixin font-size($font-size, $line-height: auto) {
+  font-size: $font-size;
+  font-size: ($font-size / $font-size--base) * 1rem;
+
+  @if $line-height == auto {
+    line-height: ceil($font-size / $line-height-base) * ($line-height-base / $font-size);
+  }
+
+  @else {
+
+    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+      line-height: $line-height;
+    }
+
+    @elseif ($line-height != none and $line-height != false) {
+      @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+    }
+
+  }
+
+}
+
+// Hide text for image replacement
+@mixin hide-text() {
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Smooth rough borders in some browsers (aka Firefox)
+@mixin force-anti-alias() {
+  transform: scale(.9999);
+}
+
+// Responsive sprite
+//
+// The sprite image should be horizontal and each image in the sprite should be equally spaced.
+// @param {string} $sprite-url - URL path to the background sprite image
+// @param {list} $images - Array of all the individual icon/image names
+// @param {string} $width [100%] - How wide a single icon/image from the sprite will be
+// @param {string} $padding-bottom [100%] - Total height the icon/image will be
+@mixin responsive-sprite($sprite-url, $images: (), $width: 100%, $padding-bottom: 100%) {
+  display: block;
+  padding-bottom: $padding-bottom;
+  height: 0;
+  width: $width;
+  background-image: url($sprite-url);
+  background-repeat: no-repeat;
+  background-size: 100% * length($images);
+  background-position: 0 0;
+
+  $ratio: 100% / (length($images) - 1);
+
+  @for $i from 1 through length($images) {
+    $image: nth($images, $i);
+
+    &--#{$image} {
+      background-position: ($ratio * $i) 0;
+    }
+  }
+}
+
+// Standard Sprite generator
+//
+// The sprite image should be horizontal and each image in the sprite should be equally spaced.
+// @param {string} $sprite-url - URL path to the background sprite image
+// @param {list} $images - Array of all the individual icon/image names
+// @param {string} $width [50px] - How wide a single icon/image from the sprite will be
+// @param {string} $height [50px] - Total height the icon/image will be
+@mixin horizontal-sprite($sprite-url, $images: (), $width: 50px, $height: 50px) {
+  display: block;
+  height: $height;
+  width: $width;
+  background-image: url($sprite-url);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+
+  @for $i from 1 through length($images) {
+    $image: nth($images, $i);
+
+    &--#{$image} {
+      background-position: -($width * ($i - 1)) 0;
+    }
+  }
+}

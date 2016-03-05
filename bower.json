@@ -16,7 +16,7 @@
   "devDependencies": {
     "breakpoint-sass": "~2.6.1",
     "sass-toolkit": "~2.9.0",
-    "normalize-scss": "~4.0.3",
+    "normalize.scss": "~4.0.3",
     "singularity": "~1.7.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "Frontend Starter",
+  "name": "zhuk-frontend-starter",
   "version": "1.0.0",
   "description": "This is a starter kit for doing frontend work",
   "main": "gulpfile.js",

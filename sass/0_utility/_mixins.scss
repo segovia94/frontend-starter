@@ -28,6 +28,22 @@
 
 }
 
+// Make list flush to the left side
+@mixin list-flush() {
+  margin: 0;
+  padding: 0;
+}
+
+// Reset lists so that they have no styling
+@mixin reset-list() {
+  @include list-flush();
+  list-style: none;
+
+  li {
+    list-style: none;
+  }
+}
+
 // Hide text for image replacement
 @mixin hide-text() {
   text-indent: 110%;

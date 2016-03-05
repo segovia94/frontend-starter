@@ -1,0 +1,45 @@
+// Media Elements (image, video, etc)
+
+// Responsive images
+embed,
+img,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  margin-bottom: $spacer;
+  max-width: 100%;
+}
+
+// http://stackoverflow.com/questions/10264463/can-a-figcaption-be-restricted-to-the-width-of-a-responsively-sized-image
+figure {
+  display: table;
+  margin: 0 0 $spacer;
+
+  // Force an immediate child so that it doesn't break stuff in ckeditor
+  > img {
+    margin-bottom: $spacer--small;
+    width: 100%; // Needed for firefox bug
+  }
+}
+
+figcaption {
+  @include font-size(12px);
+  display: table-caption;
+  caption-side: bottom;
+}
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}

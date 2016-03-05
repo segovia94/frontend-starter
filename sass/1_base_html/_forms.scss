@@ -1,0 +1,73 @@
+// Forms
+form ol,
+form ul {
+  @include reset-list;
+}
+
+fieldset {
+  border: 1px solid $brand--gray;
+  border-top: 3px solid $brand--primary;
+  margin: $spacer 0;
+  padding: $spacer;
+
+  > legend {
+    @include font-size(18px);
+    padding: $spacer--tiny;
+  }
+}
+
+label {
+  display: block;
+  padding-bottom: $spacer--tiny;
+  font-weight: $font-weight--bold;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid $input-border--color;
+  border-radius: 0;
+  padding: $spacer--tiny ($spacer--small + $spacer--tiny);
+  background-color: $input-bg;
+  background-image: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: $input-color;
+  font-family: inherit;
+  margin: 0;
+}
+
+
+input,
+select {
+  height: $input-height;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+textarea {
+  appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  height: auto;
+  width: auto;
+  margin-right: 0.3em;
+}
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  box-sizing: border-box;
+}

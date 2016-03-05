@@ -1,0 +1,128 @@
+// Global Helper classes
+
+// Clearfix
+.clearfix {
+  @include clearfix;
+}
+
+.clear {
+  clear: both;
+}
+
+// Completely remove from the flow and screen readers.
+.is-hidden {
+  display: none;
+}
+
+// Hide an element visually
+//
+// Completely remove from the flow but leave available to screen readers.
+%is-hidden--visually,
+.is-hidden--visually {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Image Replacement
+//
+// Hide text visually so that a background image can show instead
+%ir,
+.ir {
+  @include hide-text();
+}
+
+// States
+.error {
+  color: $brand--danger;
+}
+
+.warning {
+  color: $brand--warning;
+}
+
+.information {
+  color: $brand--info;
+}
+
+// Align Right
+//
+// Align an element to the right side with a float
+%align-right,
+.align-right {
+  @include breakpoint($bp-small--up, true) {
+    float: right;
+    margin-bottom: $spacer;
+    margin-left: $spacer;
+  }
+}
+
+// Align Left
+//
+// Align an element to the left side with a float
+%align-left,
+.align-left {
+  @include breakpoint($bp-small--up, true) {
+    float: left;
+    margin-bottom: $spacer;
+    margin-right: $spacer;
+  }
+}
+
+// Align Center
+//
+// Align an element to the center
+%align-center,
+.align-center {
+  margin: 0 auto;
+  text-align: center;
+
+  // Fix figure and figcaptions when aligned center
+  figure {
+    display: block;
+
+    // Force an immediate child so that it doesn't break stuff in ckeditor
+    > img {
+      width: auto;
+    }
+  }
+
+  figcaption {
+    display: block;
+  }
+}
+
+// Width Half
+//
+// Force an element to be half the width of its parent
+%width-half,
+.width-half {
+  @include breakpoint($bp-small--up, true) {
+    width: 50%;
+  }
+}
+
+// Width One-third
+//
+// Force an element to be one-third the width of its parent
+%width-one-third,
+.width-one-third {
+  @include breakpoint($bp-small--up, true) {
+    width: 33%;
+  }
+}
+
+// Width Two-thirds
+//
+// Force an element to be two-thirds the width of its parent
+%width-two-thirds,
+.width-two-thirds {
+  @include breakpoint($bp-small--up, true) {
+    width: 66%;
+  }
+}

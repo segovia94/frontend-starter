@@ -1,0 +1,16 @@
+// Container
+.l-container {
+  @include clearfix;
+  width: $container-width;
+  margin: 0 auto;
+
+  @include breakpoint($bp-medium--up, true) {
+    width: $container-width--md;
+  }
+  @include breakpoint($bp-wide--up) {
+    width: $container-width--lg;
+  }
+  @include breakpoint($bp-huge) {
+    width: $container-width--xlg;
+  }
+}

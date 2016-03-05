@@ -85,7 +85,7 @@ Example
 }
 ```
 
-> ID tags should NEVER be used! Only use classes.
+> ID tags `#id-tags` should NEVER be used! Only use classes.
 
 ## SASS formatting guidelines
 The order of mixins and placeholders:

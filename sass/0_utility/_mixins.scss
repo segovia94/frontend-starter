@@ -79,7 +79,7 @@
     $image: nth($images, $i);
 
     &--#{$image} {
-      background-position: ($ratio * $i) 0;
+      background-position: ($ratio * ($i - 1)) 0;
     }
   }
 }

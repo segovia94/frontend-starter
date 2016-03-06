@@ -3,25 +3,25 @@
 // Font Sizing: Use REMs with a pixel fallback for font sizing.
 // Adapted from Inuit CSS https://github.com/inuitcss/tools.mixins/blob/master/_tools.mixins.scss
 // @group Fonts
-// @param {string} $font-size - Font size in Pixels. Ex. 16px
-// @param {string} $line-height [auto] - Line height for the font
+// @param {string} $size - Font size in Pixels. Ex. 16px
+// @param {string} $height [auto] - Line height for the font
 // @output font-size: 16px; <br/> font-size: 1rem; <br/> line-height: auto;
-@mixin font-size($font-size, $line-height: auto) {
-  font-size: $font-size;
-  font-size: ($font-size / $font-size--base) * 1rem;
+@mixin font-size($size, $height: auto) {
+  font-size: $size;
+  font-size: ($size / $font-size) * 1rem;
 
-  @if $line-height == auto {
-    line-height: ceil($font-size / $line-height-base) * ($line-height-base / $font-size);
+  @if $height == auto {
+    line-height: ceil($size / $line-height) * ($line-height / $size);
   }
 
   @else {
 
-    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
-      line-height: $line-height;
+    @if (type-of($height) == number or $height == inherit or $height == normal) {
+      line-height: $height;
     }
 
-    @elseif ($line-height != none and $line-height != false) {
-      @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+    @elseif ($height != none and $height != false) {
+      @warn "D'oh! '#{$height}' is not a valid value for 'line-height'."
     }
 
   }

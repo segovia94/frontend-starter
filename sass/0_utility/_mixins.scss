@@ -13,19 +13,14 @@
   @if $height == auto {
     line-height: ceil($size / $line-height) * ($line-height / $size);
   }
-
   @else {
-
     @if (type-of($height) == number or $height == inherit or $height == normal) {
       line-height: $height;
     }
-
     @elseif ($height != none and $height != false) {
       @warn "D'oh! '#{$height}' is not a valid value for 'line-height'."
     }
-
   }
-
 }
 
 // Make list flush to the left side

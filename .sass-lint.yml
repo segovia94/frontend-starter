@@ -83,6 +83,7 @@ rules:
     -
       max-depth: 4
   property-sort-order: 0
+  pseudo-element: 0
   quotes:
     - 1
     -

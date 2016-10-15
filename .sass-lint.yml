@@ -6,45 +6,45 @@ files:
 # Rule Configuration
 rules:
   # Extends
-  extends-before-mixins: 1
-  extends-before-declarations: 1
-  placeholder-in-extend: 1
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 2
 
   # Mixins
-  mixins-before-declarations: 1
+  mixins-before-declarations: 2
 
   # Line Spacing
-  one-declaration-per-line: 1
-  empty-line-between-blocks: 1
-  single-line-per-selector: 1
+  one-declaration-per-line: 2
+  empty-line-between-blocks: 2
+  single-line-per-selector: 2
 
   # Disallows
-  no-color-keywords: 1
+  no-color-keywords: 2
   no-color-literals: 0
-  no-css-comments: 1
-  no-debug: 1
+  no-css-comments: 2
+  no-debug: 2
   no-duplicate-properties:
-    - 1
+    - 2
     -
       exclude:
         - border
         - font-size
         - font-smoothing
-  no-empty-rulesets: 1
+  no-empty-rulesets: 2
   no-extends: 0
-  no-ids: 1
-  no-important: 1
-  no-invalid-hex: 1
+  no-ids: 2
+  no-important: 2
+  no-invalid-hex: 2
   no-mergeable-selectors: 0
-  no-misspelled-properties: 1
+  no-misspelled-properties: 2
   no-qualifying-elements:
-    - 1
+    - 2
     -
       allow-element-with-attribute: true
-  no-trailing-zero: 1
+  no-trailing-zero: 2
   no-transition-all: 0
-  no-url-protocols: 1
-  no-vendor-prefixes: 1
+  no-url-protocols: 2
+  no-vendor-prefixes: 2
   no-warn: 0
   property-units: 0
 
@@ -55,54 +55,54 @@ rules:
 
   # Name Formats
   class-name-format:
-    - 1
+    - 2
     -
       convention: 'hyphenatedbem'
   function-name-format: 0
   id-name-format: 0
-  mixin-name-format: 1
+  mixin-name-format: 2
   placeholder-name-format: 0
-  variable-name-format: 1
+  variable-name-format: 2
 
   # Style Guide
-  bem-depth: 1
-  border-zero: 1
+  bem-depth: 2
+  border-zero: 2
   brace-style:
-    - 1
+    - 2
     -
       style: 'stroustrup'
       allow-single-line: false
-  clean-import-paths: 1
+  clean-import-paths: 2
   empty-args: 0
-  hex-length: 1
-  hex-notation: 1
-  indentation: 1
+  hex-length: 2
+  hex-notation: 2
+  indentation: 2
   leading-zero: 0
   nesting-depth:
-    - 1
+    - 2
     -
       max-depth: 4
   property-sort-order: 0
   pseudo-element: 0
   quotes:
-    - 1
+    - 2
     -
       style: double
-  shorthand-values: 1
+  shorthand-values: 2
   url-quotes: 0
   variable-for-property: 0
-  zero-unit: 1
+  zero-unit: 2
 
   # Inner Spacing
-  space-after-comma: 1
-  space-before-colon: 1
-  space-after-colon: 1
-  space-before-brace: 1
-  space-before-bang: 1
-  space-after-bang: 1
-  space-between-parens: 1
+  space-after-comma: 2
+  space-before-colon: 2
+  space-after-colon: 2
+  space-before-brace: 2
+  space-before-bang: 2
+  space-after-bang: 2
+  space-between-parens: 2
   space-around-operator: 0
 
   # Final Items
-  trailing-semicolon: 1
-  final-newline: 1
+  trailing-semicolon: 2
+  final-newline: 2

@@ -9,7 +9,7 @@ css:
   flattenDestOutput: true
   lint:
     enabled: false
-    failOnError: false
+    failOnError: true
     # Add to the main src glob - useful for exclusions with `!`
     extraSrc:
 #      - '!excluded-file.scss'
@@ -37,6 +37,7 @@ js:
   preserveLicense: false
   eslint:
     enabled: false
+    failAfterError: true
     # Add to the main src glob - useful for exclusions with `!`
     extraSrc:
       - '!js/vendor/**/*.js'

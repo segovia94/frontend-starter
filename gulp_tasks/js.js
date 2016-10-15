@@ -48,7 +48,8 @@ module.exports = function (gulp, config, tasks) {
     return gulp.src(src)
       .pipe(cached('js'))
       .pipe(eslint())
-      .pipe(eslint.format());
+      .pipe(eslint.format())
+      .pipe(gulpif(config.js.eslint.failAfterError, eslint.failAfterError()));
   });
   tasks.validate.push('validate:js');
 

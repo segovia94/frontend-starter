@@ -1,4 +1,3 @@
-'use strict';
 const mainBowerFiles = require('main-bower-files');
 const babel = require('gulp-babel');
 const cached = require('gulp-cached');

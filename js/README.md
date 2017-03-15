@@ -2,6 +2,8 @@
 
 Each file in the **/js** directory will be concatenated into a single **/js/scripts.js** file.
 
+ES2015 (es6) can be used and will be transpiled with Babel.
+
 Please use multiple files rather than stuffing all javascript into a single file.
 
 

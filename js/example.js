@@ -1,5 +1,4 @@
 (function ($, window) {
-  'use strict';
 
   $(document).ready(function () {
     // Add code here

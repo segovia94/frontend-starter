@@ -34,6 +34,7 @@ js:
   destName: scripts.js
   sourceMapEmbed: false
   uglify: true
+  babel: true
   preserveLicense: false
   eslint:
     enabled: false

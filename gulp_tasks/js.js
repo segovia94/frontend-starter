@@ -1,5 +1,6 @@
 'use strict';
 var mainBowerFiles = require('main-bower-files');
+var babel = require('gulp-babel');
 var cached = require('gulp-cached');
 var eslint = require('gulp-eslint');
 var sourcemaps = require('gulp-sourcemaps');
@@ -10,7 +11,7 @@ var gulpif = require('gulp-if');
 module.exports = function (gulp, config, tasks) {
 
   // Compile javascript
-  gulp.task('js', 'Compile javascript, concat and uglify.', function (done) {
+  gulp.task('js', 'Compile javascript with Babel, concat and uglify.', function (done) {
     var sources = [];
 
     // Add Bower files
@@ -27,6 +28,7 @@ module.exports = function (gulp, config, tasks) {
 
     return gulp.src(sources)
       .pipe(sourcemaps.init())
+      .pipe(gulpif(config.js.babel, babel())) // all babel options handled in `.babelrc`
       .pipe(concat(config.js.destName))
       .pipe(gulpif(config.js.uglify, uglify(
         gulpif(config.js.preserveLicense, {

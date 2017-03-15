@@ -1,3 +1,4 @@
+# File Options
 files:
   include: 'sass/**/*.s+(a|c)ss'
   ignore:
@@ -104,5 +105,6 @@ rules:
   space-around-operator: 0
 
   # Final Items
+  no-trailing-whitespace: 2
   trailing-semicolon: 2
   final-newline: 2

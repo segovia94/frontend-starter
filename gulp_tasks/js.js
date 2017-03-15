@@ -33,7 +33,7 @@ module.exports = function (gulp, config, tasks) {
       .pipe(gulpif(config.js.uglify, uglify(
         gulpif(config.js.preserveLicense, {
           preserveComments: 'license'
-        })
+        }, {})
       )))
       .pipe(sourcemaps.write((config.js.sourceMapEmbed) ? null : './'))
       .pipe(gulp.dest(config.js.dest));

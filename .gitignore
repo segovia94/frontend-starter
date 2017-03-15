@@ -10,5 +10,8 @@ bower_components
 # Source Maps
 *.map
 
+# Node will sometimes create a log file on failures
+*.log
+
 # Custom local gulp config
 gulp-config--custom.yml

@@ -15,7 +15,8 @@ const cssnano = require('gulp-cssnano');
 
 module.exports = (gulp, config, tasks) => {
 
-  function cssCompile(done) {
+  // Compile Sass
+  gulp.task('sass', 'Compile Sass to CSS using Libsass with Autoprefixer and SourceMaps', function (done) {
     gulp.src(config.css.src)
       .pipe(sassGlob())
       .pipe(plumber({
@@ -48,15 +49,12 @@ module.exports = (gulp, config, tasks) => {
       .on('end', () => {
         done();
       });
-  }
-
-  // Compile Sass
-  gulp.task('sass', 'Compile Sass to CSS using Libsass with Autoprefixer and SourceMaps', cssCompile);
+  });
   tasks.compile.push('sass');
 
 
-  // Vendor compile
-  gulp.task('css:vendor', 'Compile all vendor css into a single file', () => {
+  // Vendor and Bower compile
+  gulp.task('css:vendor', 'Compile all vendor css (including Bower) into a single vendor.css file', () => {
     let sources = [];
 
     // Add Bower files
@@ -80,7 +78,7 @@ module.exports = (gulp, config, tasks) => {
 
 
   // Validate with Lint
-  gulp.task('validate:css', 'Lint Sass files', () => {
+  gulp.task('validate:css', 'Lint Sass files with Sass-lint', () => {
     let src = config.css.src;
     if (config.css.lint.extraSrc) {
       src = src.concat(config.css.lint.extraSrc);

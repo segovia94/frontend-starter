@@ -10,7 +10,7 @@ const gulpif = require('gulp-if');
 module.exports = (gulp, config, tasks) => {
 
   // Compile javascript
-  gulp.task('js', 'Compile javascript with Babel, concat and uglify.', () => {
+  gulp.task('js', 'Compile javascript (including Bower libraries) with Babel, concat and uglify into a single ' + config.js.destName + ' file.', () => {
     let sources = [];
 
     // Add Bower files

@@ -15,6 +15,7 @@ catch (e) {
   console.log('Add a gulp-config--custom.yml file for any custom configuration.');
 }
 
+// Setup a list of primary tasks
 const tasks = {
   compile: [],
   watch: [],

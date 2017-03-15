@@ -1,6 +1,6 @@
 (function ($, window) {
 
-  $(document).ready(function () {
+  $(document).ready(() => {
     // Add code here
   });
 

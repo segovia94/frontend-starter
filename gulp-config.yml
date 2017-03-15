@@ -29,7 +29,7 @@ js:
   src:
     - js/vendor/**/*.js
     - js/**/*.js
-#    - '!js/example.js'
+    - '!js/example.js'
   dest: dist/
   destName: scripts.js
   sourceMapEmbed: false

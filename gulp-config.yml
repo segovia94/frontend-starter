@@ -4,8 +4,8 @@ css:
   src:
     - sass/**/*.scss
   vendor:
-    - css/vendor/**/*.css
-  dest: css/
+    - sass/vendor/**/*.css
+  dest: dist/
   flattenDestOutput: true
   lint:
     enabled: false
@@ -29,8 +29,8 @@ js:
   src:
     - js/vendor/**/*.js
     - js/**/*.js
-    - '!js/example.js'
-  dest: js/
+#    - '!js/example.js'
+  dest: dist/
   destName: scripts.js
   sourceMapEmbed: false
   uglify: true

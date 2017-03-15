@@ -57,6 +57,13 @@ For Example:
 .l-container {}
 ```
 
+## 6. Vendor
+
+The `vendor` directory can be used to add third party libraries that have not already been added via Bower. It is preferable to use Bower if at all possible. This should just be pure CSS and not include Sass files.
+
+CSS in this directory will be compiled with bower components into a **/dist/vendor.css** file.
+
+
 ## Files
 **_variables.scss** contains all the site SASS variables which will be used by components, mixins, and anything else which needs values abstracted for site-wide use.
 

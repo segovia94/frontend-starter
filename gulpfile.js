@@ -1,22 +1,21 @@
-'use strict';
-var gulp = require('gulp-help')(require('gulp'));
-var yaml = require('js-yaml');
-var fs = require('fs');
-var _ = require('lodash');
-var config = yaml.safeLoad(fs.readFileSync('./gulp-config.yml', 'utf8'));
-var customConfigFile = './gulp-config--custom.yml';
+const gulp = require('gulp-help')(require('gulp'));
+const yaml = require('js-yaml');
+const fs = require('fs');
+const _ = require('lodash');
+const customConfigFile = './gulp-config--custom.yml';
+let config = yaml.safeLoad(fs.readFileSync('./gulp-config.yml', 'utf8'));
 
 // Load in custom config
 try {
   fs.statSync(customConfigFile);
-  var customConfig = yaml.safeLoad(fs.readFileSync(customConfigFile, 'utf8'));
+  let customConfig = yaml.safeLoad(fs.readFileSync(customConfigFile, 'utf8'));
   config = _.merge(config, customConfig);
 }
 catch (e) {
   console.log('Add a gulp-config--custom.yml file for any custom configuration.');
 }
 
-var tasks = {
+const tasks = {
   compile: [],
   watch: [],
   validate: [],

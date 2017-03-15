@@ -1,18 +1,18 @@
 'use strict';
-var mainBowerFiles = require('main-bower-files');
-var babel = require('gulp-babel');
-var cached = require('gulp-cached');
-var eslint = require('gulp-eslint');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var gulpif = require('gulp-if');
+const mainBowerFiles = require('main-bower-files');
+const babel = require('gulp-babel');
+const cached = require('gulp-cached');
+const eslint = require('gulp-eslint');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const gulpif = require('gulp-if');
 
-module.exports = function (gulp, config, tasks) {
+module.exports = (gulp, config, tasks) => {
 
   // Compile javascript
-  gulp.task('js', 'Compile javascript with Babel, concat and uglify.', function (done) {
-    var sources = [];
+  gulp.task('js', 'Compile javascript with Babel, concat and uglify.', () => {
+    let sources = [];
 
     // Add Bower files
     if (config.bowerFiles.enabled) {
@@ -42,8 +42,8 @@ module.exports = function (gulp, config, tasks) {
 
 
   // Validate using ESlint
-  gulp.task('validate:js', 'Lint JS using ESlint', function () {
-    var src = config.js.src;
+  gulp.task('validate:js', 'Lint JS using ESlint', () => {
+    let src = config.js.src;
     if (config.js.eslint.extraSrc) {
       src = src.concat(config.js.eslint.extraSrc);
     }
@@ -57,8 +57,8 @@ module.exports = function (gulp, config, tasks) {
 
 
   // Watch for changes
-  gulp.task('watch:js', function () {
-    var tasks = ['js'];
+  gulp.task('watch:js', () => {
+    let tasks = ['js'];
     if (config.js.eslint.enabled) {
       tasks.push('validate:js');
     }

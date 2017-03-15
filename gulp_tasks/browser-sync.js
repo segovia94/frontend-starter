@@ -1,9 +1,9 @@
 'use strict';
-var browserSync = require('browser-sync').create('server');
-var _ = require('lodash');
+const browserSync = require('browser-sync').create('server');
+const _ = require('lodash');
 
-module.exports = function (gulp, config, tasks) {
-  var watchFiles = [];
+module.exports = (gulp, config, tasks) => {
+  const watchFiles = [];
 
   // Define CSS files to watch
   if (config.css.enabled) {
@@ -17,12 +17,12 @@ module.exports = function (gulp, config, tasks) {
 
   // Define specific files to watch which have been added through config
   if (config.browserSync.watchFiles) {
-    config.browserSync.watchFiles.forEach(function (file) {
+    config.browserSync.watchFiles.forEach((file) => {
       watchFiles.push(file);
     });
   }
 
-  var options = {
+  const options = {
     browser: config.browserSync.browser,
     files: watchFiles,
     port: config.browserSync.port,
@@ -45,7 +45,7 @@ module.exports = function (gulp, config, tasks) {
       startPath: config.browserSync.startPath
     });
   }
-  gulp.task('serve', 'Create a local server using BrowserSync', function () {
+  gulp.task('serve', 'Create a local server using BrowserSync', () => {
     return browserSync.init(options);
   });
   tasks.default.push('serve');

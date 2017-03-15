@@ -1,26 +1,25 @@
-'use strict';
-var mainBowerFiles = require('main-bower-files');
-var sassGlob = require('gulp-sass-glob');
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
-var sassLint = require('gulp-sass-lint');
-var postcss = require('gulp-postcss');
-var cached = require('gulp-cached');
-var autoprefixer = require('autoprefixer');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var flatten = require('gulp-flatten');
-var gulpif = require('gulp-if');
-var concat = require('gulp-concat');
-var cssnano = require('gulp-cssnano');
+const mainBowerFiles = require('main-bower-files');
+const sassGlob = require('gulp-sass-glob');
+const sourcemaps = require('gulp-sourcemaps');
+const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
+const postcss = require('gulp-postcss');
+const cached = require('gulp-cached');
+const autoprefixer = require('autoprefixer');
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const flatten = require('gulp-flatten');
+const gulpif = require('gulp-if');
+const concat = require('gulp-concat');
+const cssnano = require('gulp-cssnano');
 
-module.exports = function (gulp, config, tasks) {
+module.exports = (gulp, config, tasks) => {
 
   function cssCompile(done) {
     gulp.src(config.css.src)
       .pipe(sassGlob())
       .pipe(plumber({
-        errorHandler: function (error) {
+        errorHandler: (error) => {
           notify.onError({
             title: 'CSS <%= error.name %> - Line <%= error.line %>',
             message: '<%= error.message %>'
@@ -46,7 +45,7 @@ module.exports = function (gulp, config, tasks) {
       .pipe(sourcemaps.write((config.css.sourceMapEmbed) ? null : './'))
       .pipe(gulpif(config.css.flattenDestOutput, flatten()))
       .pipe(gulp.dest(config.css.dest))
-      .on('end', function () {
+      .on('end', () => {
         done();
       });
   }
@@ -57,8 +56,8 @@ module.exports = function (gulp, config, tasks) {
 
 
   // Vendor compile
-  gulp.task('css:vendor', 'Compile all vendor css into a single file', function () {
-    var sources = [];
+  gulp.task('css:vendor', 'Compile all vendor css into a single file', () => {
+    let sources = [];
 
     // Add Bower files
     if (config.bowerFiles.enabled) {
@@ -81,8 +80,8 @@ module.exports = function (gulp, config, tasks) {
 
 
   // Validate with Lint
-  gulp.task('validate:css', 'Lint Sass files', function () {
-    var src = config.css.src;
+  gulp.task('validate:css', 'Lint Sass files', () => {
+    let src = config.css.src;
     if (config.css.lint.extraSrc) {
       src = src.concat(config.css.lint.extraSrc);
     }
@@ -96,8 +95,8 @@ module.exports = function (gulp, config, tasks) {
 
 
   // Watch for changes
-  gulp.task('watch:css', function () {
-    var tasks = ['sass'];
+  gulp.task('watch:css', () => {
+    let tasks = ['sass'];
     if (config.css.lint.enabled) {
       tasks.push('validate:css');
     }

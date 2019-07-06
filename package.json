@@ -9,6 +9,9 @@
     "url": "https://github.com/segovia94/frontend-starter"
   },
   "author": "Mark Miller",
+  "scripts": {
+    "start": "gulp"
+  },
   "devDependencies": {
     "js-yaml": "^3.13.1",
     "ucd-theme-tasks": "ucdavis/ucd-theme-tasks#gulp4"

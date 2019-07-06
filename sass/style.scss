@@ -4,7 +4,7 @@
 @import "breakpoint";
 
 // Useful mixins and helpers, https://github.com/at-import/toolkit
-@import "toolkit";
+//@import "toolkit";
 
 // Site-wide variables
 @import "variables";
@@ -13,18 +13,22 @@
 //@import "normalize/import-now";
 
 // Utility objects and helpers
-@import "0_utility/mixins";
-@import "0_utility/reset";
+@import "0_tools/mixins";
+@import "0_tools/reset";
 
-// Objects
-@import "0_utility/objects/**/*";
-
-// Partials
+// Base
 @import "1_base_html/**/*";
 @import "2_base_class/**/*";
+
+// Objects
+@import "0_tools/objects/**/*";
+
+// Components
 @import "3_component/**/*";
-@import "4_region/**/*";
-@import "5_layout/**/*";
+@import "4_layout/**/*";
+
+// Utility Overrides
+@import "0_tools/utility_helpers/**/*";
 
 // Hacks
 @import "hacks";

@@ -1,5 +1,13 @@
 // Mixins
 
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 // Font Sizing: Use REMs with a pixel fallback for font sizing.
 // Adapted from Inuit CSS https://github.com/inuitcss/tools.mixins/blob/master/_tools.mixins.scss
 // @group Fonts

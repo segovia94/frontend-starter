@@ -2,34 +2,44 @@
 
 ```
 |-- sass
-|   |-- 0_utility
+|   |-- 0_tools
 |   |-- 1_base_html
 |   |-- 2_base_class
 |   |-- 3_component
-|   |-- 4_region
-|   |-- 5_layout
+|   |-- 4_layout
+|   |-- vendor - delete if not using
 |   |-- _hacks.scss
 |   |-- _variables.scss
+|   |-- normalize.scss
 |   |-- style.scss
 ```
 
-## 0. Utility
-This folder contains global tools or base settings.
+## 0. Tools
+This folder contains global tools and settings.
 
 Mixins should be placed here so that they are usable for all SASS partials.
 
-The `objects` folder contains css objects that are self-contained and reusable.
+The `objects` folder contains css objects that are self-contained and reusable. They are prefixed with `.o-` to easily
+identify them in markup.
+
+The `utility` folder contains global css utility helper classes which are prefixed with `.u-` to easily identify them in
+markup. They make use of `!important` to ensure that their styles always apply ahead of those defined in a component's
+dedicated CSS.
 
 ## 1. Base HTML
 Only basic HTML tags should be used in this directory. This is the foundation for all classes which will follow.
 
 ## 2. Base Class
-Any basic element styles which would augment Base HTML or will be needed by various components should go here. Examples would be Buttons or other default styles before being turned into Components.
+Any basic element styles which would augment Base HTML or will be needed by various components should go here. Examples
+would be Buttons or other default styles before being turned into Components.
 
 ## 3. Component
-**The majority of all styles will go here.** Each component should be completely isolated from any other component. There should not be any sharing of styles among components. As well, cascading order should not be required for any component.
+**The majority of all styles will go here.** Each component should be completely isolated from any other component.
+There should not be any sharing of styles among components. As well, cascading order should not be required for any
+component.
 
-In general, stay away from assuming any sort of HTML structure. Obviously this isn't always possible, but it's a good rule of thumb to follow.
+In general, stay away from assuming any sort of HTML structure. Obviously this isn't always possible, but it's a good
+rule of thumb to follow.
 
 Don't Use:
 ```scss
@@ -44,11 +54,8 @@ Instead Use:
 }
 ```
 
-## 4. Region
-This section is for any larger formatting to a specific region such as a header or footer. Think of this as something that augments and holds compontents inside of it. This section should be used sparingly.
-
-## 5. Layout
-Use this folder for any sitewide layout classes. This should be agnostic from the rest of the site's styles.
+## 4. Layout
+Use this folder for any site-wide layout classes. This should be agnostic from the rest of the site's styles.
 
 Prefix layout classes with `.l-` which will make reading through html easy to spot layout items.
 
@@ -57,29 +64,40 @@ For Example:
 .l-container {}
 ```
 
-## 6. Vendor
+## Vendor - delete if not using
 
-The `vendor` directory can be used to add third party libraries that have not already been added via Bower. It is preferable to use Bower if at all possible. This should just be pure CSS and not include Sass files.
+The `vendor` directory can be used to add third party libraries that have not already been added via NPM. It is
+preferable to use NPM if at all possible. This should just be pure CSS and not include Sass files.
 
 CSS in this directory will be compiled with bower components into a **/dist/vendor.css** file.
 
 
 ## Files
-**_variables.scss** contains all the site SASS variables which will be used by components, mixins, and anything else which needs values abstracted for site-wide use.
+**_variables.scss** contains all the site SASS variables which will be used by components, mixins, and anything else
+which needs values abstracted for site-wide use.
 
-**_hacks.scss**: this partial should be used sparingly when something needs to be done very quickly without time to put a style in its proper place. This file overrides everything so it should be cleaned up regularly so that styles go in their proper place.
+**_hacks.scss**: this partial should be used sparingly when something needs to be done very quickly without time to put
+a style in its proper place. This file overrides everything so it should be cleaned up regularly so that styles go in
+their proper place.
 
-**style.scss**: This is the main file which will be rendered into **style.css**. It contains all of the SASS libraries and partials necessary to build CSS.
+**normalize.scss**: This is a reset file which should be loaded in before any other CSS files.
+See [http://nicolasgallagher.com/about-normalize-css/](http://nicolasgallagher.com/about-normalize-css/).
+
+**style.scss**: This is the main file which will be rendered into **style.css**. It contains all of the SASS libraries
+and partials necessary to build CSS.
 
 Don't put any styles directly into **style.scss**!
 
 
 # CSS formatting guidelines
-Use the [Drual CSS guidlines](https://www.drupal.org/node/1887862) and [Drupal CSS Architecture](https://www.drupal.org/coding-standards/css/architecture)
+See the [Drual CSS guidlines](https://www.drupal.org/node/1887862) and
+[Drupal CSS Architecture](https://www.drupal.org/coding-standards/css/architecture) documentation.
 
-One item to note is that this guideline is for CSS and does not take SASS/SCSS syntax into account. Because of this there is one specific change.
+One item to note is that this guideline is for CSS and does not take SASS/SCSS syntax into account. Because of this
+there is one specific change.
 
-Place a space in between each class. This allows better readability since each SASS partial will only have a few classes per file.
+Place a space in between each class. This allows better readability since each SASS partial will only have a few classes
+per file.
 
 Example
 ```scss
@@ -153,17 +171,18 @@ This will render into CSS
 
 ## Validation
 
-[Sass Lint](https://github.com/sasstools/sass-lint) is being used to validate Sass/Scss files via the [gulp-sass-lint](https://www.npmjs.com/package/gulp-sass-lint).
+[Sass Lint](https://github.com/sasstools/sass-lint) is being used to validate Sass/Scss files via the
+[gulp-sass-lint](https://www.npmjs.com/package/gulp-sass-lint).
 
-The gulp task `gulp validate:css` can be used to easily validate all Sass.
-
+The gulp task `npx gulp validate:css` can be used to easily validate all Sass.
 
 
 # Useful Articles and Links
 Drupal CSS formating guides
 
 * [Drual CSS guidlines](https://www.drupal.org/node/1887862)
-* [Drupal CSS Architecture](https://www.drupal.org/coding-standards/css/architecture) - This repo uses a different folder structure, but it follows the same ideas.
+* [Drupal CSS Architecture](https://www.drupal.org/coding-standards/css/architecture) - This repo uses a different
+folder structure, but it follows the same ideas.
 
 BEM naming convention
 
@@ -177,7 +196,6 @@ Sass Info
 
 Sass Libraries, Helpers, and Shortcut tools
 
-* [Singularity](https://github.com/at-import/Singularity/wiki) - This is a very flexible grid system.
 * [Breakpoint](http://breakpoint-sass.com/) & [Breakpoint Wiki](https://github.com/at-import/breakpoint/wiki) - Use Breakpoint for media queries in responsive design.
 * [Toolkit](https://github.com/at-import/toolkit) - This is a library of cool mixins and helpers.
 

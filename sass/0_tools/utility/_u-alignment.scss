@@ -43,7 +43,7 @@
   }
 
   figcaption {
-    @include font-size(12px, 18px);
+    font-size: .75rem;
     display: block;
   }
 }

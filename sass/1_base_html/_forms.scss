@@ -11,7 +11,7 @@ fieldset {
   padding: $spacer;
 
   > legend {
-    @include font-size(18px);
+    font-size: 1.125rem;
     padding: $spacer--tiny;
   }
 }

@@ -1,33 +1,36 @@
 // Mixins
 
+// Fluid Typography
+// @link https://css-tricks.com/snippets/css/fluid-typography/
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+// Clearfix
 @mixin clearfix() {
   &:after {
     content: "";
     display: table;
     clear: both;
-  }
-}
-
-// Font Sizing: Use REMs with a pixel fallback for font sizing.
-// Adapted from Inuit CSS https://github.com/inuitcss/tools.mixins/blob/master/_tools.mixins.scss
-// @group Fonts
-// @param {string} $size - Font size in Pixels. Ex. 16px
-// @param {string} $height [auto] - Line height for the font
-// @output font-size: 16px; <br/> font-size: 1rem; <br/> line-height: auto;
-@mixin font-size($size, $height: auto) {
-  font-size: $size;
-  font-size: ($size / $font-size) * 1rem;
-
-  @if $height == auto {
-    line-height: ceil($size / $line-height) * ($line-height / $size);
-  }
-  @else {
-    @if (type-of($height) == number or $height == inherit or $height == normal) {
-      line-height: $height;
-    }
-    @elseif ($height != none and $height != false) {
-      @warn "D'oh! '#{$height}' is not a valid value for 'line-height'."
-    }
   }
 }
 

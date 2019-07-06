@@ -27,7 +27,7 @@ figure {
 }
 
 figcaption {
-  @include font-size(12px);
+  font-size: .75rem;
   display: table-caption;
   caption-side: bottom;
 }

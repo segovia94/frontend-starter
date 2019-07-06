@@ -126,7 +126,7 @@ The order of mixins and placeholders:
   @extend %default-block;
 
   // Mixin is added
-  @include font-size(16px);
+  @include list-flush();
 
   // Normal styles are used
   padding: 0;

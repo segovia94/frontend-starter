@@ -17,10 +17,13 @@ js:
   src:
     - js/vendor/**/*.js
     - js/**/*.js
-#    - '!js/example.js'
+    - '!js/example.js'
   dest: dist/
   eslint:
     enabled: false
+  #  Inform webpack that a library is being added via an external script tag.
+#  externals:
+#    jquery: 'jQuery'
 
 nodeFiles:
   enabled: true

@@ -1,7 +1,6 @@
-(function ($, window) {
+// Require a library like jQuery.
+// import jQuery from 'jquery';
 
-  $(document).ready(() => {
-    // Add code here
-  });
-
-})(jQuery, window); // end jquery enclosure
+(() => {
+  console.log('ES6 Converted with Babel');
+})();

@@ -51,15 +51,32 @@
 }
 
 // Hide text for image replacement
-@mixin hide-text() {
-  text-indent: 110%;
-  white-space: nowrap;
-  overflow: hidden;
+@mixin hide-text($important) {
+  $bang: if($important, !important, null);
+  text-indent: 110% $bang;
+  white-space: nowrap $bang;
+  overflow: hidden $bang;
 }
 
-// Smooth rough borders in some browsers (aka Firefox)
-@mixin force-anti-alias() {
-  transform: scale(.9999);
+/// Hide Visually
+@mixin hide-visually($important) {
+  $bang: if($important, !important, null);
+  border: 0 $bang;
+  clip: rect(1px, 1px, 1px, 1px) $bang;
+  height: 1px $bang;
+  overflow: hidden $bang;
+  padding: 0 $bang;
+  position: absolute $bang;
+  width: 1px $bang;
+}
+
+/// Show Visually
+@mixin show-visually($important) {
+  $bang: if($important, !important, null);
+  clip: auto $bang;
+  height: auto $bang;
+  position: inherit $bang;
+  width: auto $bang;
 }
 
 // Responsive sprite

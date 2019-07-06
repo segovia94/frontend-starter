@@ -1,8 +1,5 @@
 // Main file which will be compiled into style.css
 
-// Grid system, https://github.com/at-import/Singularity
-@import "singularitygs";
-
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "breakpoint";
 
@@ -12,8 +9,8 @@
 // Site-wide variables
 @import "variables";
 
-// Normalize base css
-@import "normalize/import-now";
+// Normalize base css (if not in its own file)
+//@import "normalize/import-now";
 
 // Utility objects and helpers
 @import "0_utility/mixins";

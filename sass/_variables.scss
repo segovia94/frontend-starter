@@ -190,20 +190,3 @@ $bp-wide--down:           max-width $media-wide-max !default;
 $bp-huge--down:           max-width $media-huge-max !default;
 
 $bp-narrow--landscape:    ($bp-narrow--down) (orientation landscape) !default;
-
-
-// Setup singularity grid
-// -------------------------
-
-// Grid sizes
-@include add-grid(1); // Mobile
-@include add-grid(4 4 4 at $bp-medium--up);
-
-// Gutters
-@include add-gutter(30px);
-
-// Uncomment to turn on debugging for grids
-//.l-container {
-//  @include sgs-change("debug", true);
-//  @include background-grid($color: blue);
-//}

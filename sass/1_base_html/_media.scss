@@ -27,9 +27,20 @@ figure {
 }
 
 figcaption {
-  @include font-size(12px);
+  font-size: .75rem;
   display: table-caption;
   caption-side: bottom;
+}
+
+// Provide the proper responsive solution for browsers other than IE11
+@supports ((display: table) and (display: table-caption)) {
+  figure {
+    display: table;
+  }
+
+  figcaption {
+    display: table-caption;
+  }
 }
 
 // Remove the gap between audio, canvas, iframes,

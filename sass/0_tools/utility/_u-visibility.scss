@@ -1,0 +1,32 @@
+// Force an element to act as a block
+.u-block {
+  display: block !important;
+}
+
+// Force an element to act as an inline element
+.u-inline {
+  display: inline !important;
+}
+
+// Completely remove from the flow and screen readers.
+.u-hidden {
+  display: none !important;
+}
+
+// Hide an element visually
+// Completely remove from the flow but leave available to screen readers.
+.u-hidden--visually {
+  @include hide-visually("important");
+}
+
+// Show an element that had been hidden visually
+// Adds an element back into the flow and shows what was hidden by .u-hidden--visually
+.u-shown--visually {
+  @include show-visually("important");
+}
+
+// Image Replacement
+// Hide text visually so that a background image can show instead
+.u-hide-text {
+  @include hide-text("important");
+}

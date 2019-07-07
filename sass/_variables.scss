@@ -41,7 +41,9 @@ $link-color--hover:       darken($link-color, 15%) !default;
 
 $font-color:              #333 !default;
 
-$font-family--sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family--native:     -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$font-family--sans-serif: $font-family--native !default; // Add custom fonts here with a native fallback.
 $font-family--serif:      Georgia, "Times New Roman", Times, serif !default;
 $font-family--monospace:  Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
@@ -49,6 +51,7 @@ $font-family:             $font-family--sans-serif !default;
 $font-family--headings:   $font-family--serif !default;
 
 $line-height:             1.6 !default;
+$line-height--headings:   1.3 !default;
 
 $font-size:               16px !default;
 $font-size--large:        ceil($font-size * 1.5) !default; // ~24px
@@ -62,7 +65,7 @@ $font-weight--bold:       bold !default;
 // Default Spacing Units
 // -------------------------
 
-$spacer:                  1em !default;
+$spacer:                  1rem !default;
 $spacer--tiny:            $spacer / 4 !default;
 $spacer--small:           $spacer / 2 !default;
 $spacer--large:           $spacer * 2 !default;

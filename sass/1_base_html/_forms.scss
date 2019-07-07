@@ -1,19 +1,21 @@
 // Forms
-form ol,
-form ul {
-  @include reset-list;
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
-fieldset {
-  border: 1px solid $brand--gray;
-  border-top: 3px solid $brand--primary;
-  margin: $spacer 0;
-  padding: $spacer;
-
-  > legend {
-    font-size: 1.125rem;
-    padding: $spacer--tiny;
-  }
+legend {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: $spacer--small;
+  font-size: 1.5rem;
+  line-height: inherit;
+  color: inherit;
+  white-space: normal;
 }
 
 label {
@@ -33,41 +35,52 @@ textarea {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   color: $input-color;
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   margin: 0;
 }
-
 
 input,
 select {
   height: $input-height;
 }
 
-input,
-textarea {
-  width: 100%;
-}
-
-input[type="text"],
-input[type="search"],
-input[type="url"],
-input[type="number"],
+// Remove browser default styling.
+[type="text"],
+[type="search"],
+[type="url"],
+[type="number"],
 textarea {
   appearance: none;
 }
 
+// Inform browsers to make buttons look like buttons.
 button,
-input[type="submit"] {
-  cursor: pointer;
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  height: auto;
-  width: auto;
-  margin-right: 0.3em;
+// Ensure buttons that are not disabled have a mouse pointer.
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer;
 }
 
 // Override content-box in Normalize (* isn't specific enough)
 input[type="search"] {
   box-sizing: border-box;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+// Force html5 "hidden" attibute to always be hidden
+[hidden] {
+  display: none !important;
 }

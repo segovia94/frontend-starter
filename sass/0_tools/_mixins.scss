@@ -51,7 +51,7 @@
 }
 
 // Hide text for image replacement
-@mixin hide-text($important) {
+@mixin hide-text($important: null) {
   $bang: if($important, !important, null);
   text-indent: 110% $bang;
   white-space: nowrap $bang;
@@ -59,7 +59,7 @@
 }
 
 /// Hide Visually
-@mixin hide-visually($important) {
+@mixin hide-visually($important: null) {
   $bang: if($important, !important, null);
   border: 0 $bang;
   clip: rect(1px, 1px, 1px, 1px) $bang;
@@ -71,7 +71,7 @@
 }
 
 /// Show Visually
-@mixin show-visually($important) {
+@mixin show-visually($important: null) {
   $bang: if($important, !important, null);
   clip: auto $bang;
   height: auto $bang;

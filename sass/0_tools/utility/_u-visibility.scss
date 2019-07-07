@@ -16,17 +16,17 @@
 // Hide an element visually
 // Completely remove from the flow but leave available to screen readers.
 .u-hidden--visually {
-  @include hide-visually('important');
+  @include hide-visually("important");
 }
 
 // Show an element that had been hidden visually
 // Adds an element back into the flow and shows what was hidden by .u-hidden--visually
 .u-shown--visually {
-  @include show-visually('important');
+  @include show-visually("important");
 }
 
 // Image Replacement
 // Hide text visually so that a background image can show instead
 .u-hide-text {
-  @include hide-text('important');
+  @include hide-text("important");
 }

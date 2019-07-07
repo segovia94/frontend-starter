@@ -57,7 +57,8 @@ $o-media-enable--huge:    false !default;
 %o-media__body {
   display: block;
   flex: 1;
-  -ms-flex-basis: auto; // required by ie11
+  // required by ie11
+  -ms-flex-basis: auto; // sass-lint:disable-line no-vendor-prefixes no-misspelled-properties
 
   &,
   > :last-child {

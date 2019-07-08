@@ -3,15 +3,13 @@ folder or it will be overwritten the next time Sass and Js are compiled.
 
 # CSS
 
-Each file in the **/sass** directory will be processed with LibSass and added to this directory.
+Each file in the **/sass** directory will be processed with LibSass and added to
+this directory.
 
 The main file generated in this directory will be **/dist/style.css**
-
-Please use multiple files rather than stuffing all javascript into a single file.
 
 
 # Javascript
 
-Each file in the **/js** directory will be concatenated into a single **/dist/scripts.js** file.
-
-Please use multiple files rather than stuffing all javascript into a single file.
+Each file in the **/js** directory will be concatenated into a single
+**/dist/scripts.js** file.

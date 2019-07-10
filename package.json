@@ -1,6 +1,6 @@
 {
   "name": "zhuk-frontend-starter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "This is a starter kit for doing frontend work",
   "main": "gulpfile.js",
   "private": true,
@@ -13,8 +13,7 @@
     "start": "gulp"
   },
   "devDependencies": {
-    "js-yaml": "^3.13.1",
-    "ucd-theme-tasks": "ucdavis/ucd-theme-tasks#gulp4"
+    "ucd-theme-tasks": "^3.0.0"
   },
   "engines": {
     "node": ">=10.16.0"

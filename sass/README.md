@@ -5,8 +5,10 @@
 |   |-- 0_tools
 |   |-- 1_base_html
 |   |-- 2_base_class
-|   |-- 3_component
-|   |-- 4_layout
+|   |-- 3_objects
+|   |-- 4_component
+|   |-- 5_layout
+|   |-- 6_utility
 |   |-- vendor - delete if not using
 |   |-- _hacks.scss
 |   |-- _variables.scss
@@ -19,13 +21,6 @@ This folder contains global tools and settings.
 
 Mixins should be placed here so that they are usable for all SASS partials.
 
-The `objects` folder contains css objects that are self-contained and reusable. They are prefixed with `.o-` to easily
-identify them in markup.
-
-The `utility` folder contains global css utility helper classes which are prefixed with `.u-` to easily identify them in
-markup. They make use of `!important` to ensure that their styles always apply ahead of those defined in a component's
-dedicated CSS.
-
 ## 1. Base HTML
 Only basic HTML tags should be used in this directory. This is the foundation for all classes which will follow.
 
@@ -33,7 +28,11 @@ Only basic HTML tags should be used in this directory. This is the foundation fo
 Any basic element styles which would augment Base HTML or will be needed by various components should go here. Examples
 would be Buttons or other default styles before being turned into Components.
 
-## 3. Component
+## 3. Objects
+The `objects` folder contains css objects that are self-contained and reusable. They are prefixed with `.o-` to easily
+identify them in markup.
+
+## 4. Component
 **The majority of all styles will go here.** Each component should be completely isolated from any other component.
 There should not be any sharing of styles among components. As well, cascading order should not be required for any
 component.
@@ -54,7 +53,7 @@ Instead Use:
 }
 ```
 
-## 4. Layout
+## 5. Layout
 Use this folder for any site-wide layout classes. This should be agnostic from the rest of the site's styles.
 
 Prefix layout classes with `.l-` which will make reading through html easy to spot layout items.
@@ -63,6 +62,11 @@ For Example:
 ```scss
 .l-container {}
 ```
+
+## 6. Utility
+The `utility` folder contains global css utility helper classes which are prefixed with `.u-` to easily identify them in
+markup. They make use of `!important` to ensure that their styles always apply ahead of those defined in a component's
+dedicated CSS.
 
 ## Vendor - delete if not using
 

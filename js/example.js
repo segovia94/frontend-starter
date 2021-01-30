@@ -1,6 +1,3 @@
-// Require a library like jQuery.
-// import jQuery from 'jquery';
+import exampleModule from './modules/example-module.js'
 
-(() => {
-  console.log('ES6 Converted with Babel');
-})();
+exampleModule()

@@ -1,17 +1,19 @@
 // The Box object simply boxes off content.
 // Adapted from Inuit CSS
 // @link https://github.com/inuitcss/objects.box/blob/master/_objects.box.scss
+//
+// --o-box-spacer-default: set this in the root to override for all.
 
 // Box Object: Default Spacing unit
-$o-box-spacer:          16px !default; // This is 1em at default.
+$o-box-spacer:          1rem !default; // This is 1em at default.
 // Box Object: Tiny Spacing unit
-$o-box-spacer--tiny:    round($o-box-spacer / 4) !default;
+$o-box-spacer--tiny:    $o-box-spacer / 4 !default;
 // Box Object: Small Spacing unit
-$o-box-spacer--small:   round($o-box-spacer / 2) !default;
+$o-box-spacer--small:   $o-box-spacer / 2 !default;
 // Box Object: Large Spacing unit
-$o-box-spacer--large:   round($o-box-spacer * 2) !default;
+$o-box-spacer--large:   $o-box-spacer * 2 !default;
 // Box Object: Huge Spacing unit
-$o-box-spacer--huge:    round($o-box-spacer * 4) !default;
+$o-box-spacer--huge:    $o-box-spacer * 4 !default;
 
 // Enable or disable object classes
 
@@ -27,85 +29,84 @@ $o-box-enable--large:   false !default;
 $o-box-enable--huge:    false !default;
 
 // Box Object: The box object simply boxes off content.
-// Adapted from [Inuit CSS](https://github.com/inuitcss)
-%o-box {
+//
+// @param {boolean} $modifiers - print modifier classes.
+@mixin o-box($modifiers: true) {
+  --o-box-spacer: var(--o-box-spacer-default, #{$o-box-spacer});
   @include clearfix();
   display: block; // So we can apply the `.o-box` class to naturally-inline elements.
-  padding: $o-box-spacer;
+  padding: var(--o-box-spacer);
 
   > :last-child {
     margin-bottom: 0;
+  }
+
+  // Create modifier to classes.
+  @if ($modifiers == true) {
+    @if ($o-box-enable--flush == true) {
+      &--flush {
+        @include o-box--flush();
+      }
+    }
+
+    @if ($o-box-enable--tiny == true) {
+      &--tiny {
+        @include o-box--tiny();
+      }
+    }
+
+    @if ($o-box-enable--small == true) {
+      &--small {
+        @include o-box--small();
+      }
+    }
+
+    @if ($o-box-enable--large == true) {
+      &--large {
+        @include o-box--large();
+      }
+    }
+
+    @if ($o-box-enable--huge == true) {
+      &--huge {
+        @include o-box--huge();
+      }
+    }
   }
 }
 
 // Box Object: Flush `Modifier`
 //
 // Removes all padding from the box.
-%o-box--flush {
-  padding: 0;
+@mixin o-box--flush() {
+  --o-box-spacer: 0;
 }
 
 // Box Object: Tiny box
-%o-box--tiny {
-  padding: $o-box-spacer--tiny;
+@mixin o-box--tiny() {
+  --o-box-spacer: #{$o-box-spacer--tiny};
 }
 
 // Box Object: Small box
-%o-box--small {
-  padding: $o-box-spacer--small;
+@mixin o-box--small() {
+  --o-box-spacer: #{$o-box-spacer--small};
 }
 
 // Box Object: Large box
-%o-box--large {
+@mixin o-box--large() {
   @include breakpoint($bp-medium--up) {
-    padding: $o-box-spacer--large;
+    --o-box-spacer: #{$o-box-spacer--large};
   }
 }
 
 // Box Object: Huge box
-%o-box--huge {
+@mixin o-box--huge() {
   @include breakpoint($bp-medium--up) {
-    padding: $o-box-spacer--huge;
+    --o-box-spacer: #{$o-box-spacer--huge};
   }
 }
 
-
-// Assign placeholders to classes
+// Render the class.
 .o-box {
-  @extend %o-box;
-}
-
-@if ($o-box-enable--flush == true) {
-  .o-box--flush {
-    @extend %o-box;
-    @extend %o-box--flush;
-  }
-}
-
-@if ($o-box-enable--tiny == true) {
-  .o-box--tiny {
-    @extend %o-box;
-    @extend %o-box--tiny;
-  }
-}
-
-@if ($o-box-enable--small == true) {
-  .o-box--small {
-    @extend %o-box;
-    @extend %o-box--small;
-  }
-}
-
-@if ($o-box-enable--large == true) {
-  .o-box--large {
-    @extend %o-box;
-    @extend %o-box--large;
-  }
-}
-
-@if ($o-box-enable--huge == true) {
-  .o-box--huge {
-    @extend %o-box;
-    @extend %o-box--huge;
-  }
+  @include o-box();
 }

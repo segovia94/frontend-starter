@@ -4,7 +4,7 @@
   width: $container-width;
   margin: 0 auto;
 
-  @include breakpoint($bp-medium--up, true) {
+  @include breakpoint($bp-medium--up) {
     width: $container-width--md;
   }
   @include breakpoint($bp-wide--up) {

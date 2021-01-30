@@ -1,0 +1,25 @@
+// The Flow object creates a consistent vertical flow.
+//
+// --o-flow-spacer-default: set this in the root to override for all.
+
+// Flow Object: Default Spacing unit
+$o-flow-spacer: 1rem !default; // This is 1em at default.
+
+@mixin o-flow() {
+  > * + * {
+    // Set a default spacer that will be used so that nested flows will reset
+    // to the default flow size.
+    --o-flow-spacer: var(--o-flow-spacer-default, #{$o-flow-spacer});
+    margin-top: var(--o-flow-spacer);
+  }
+
+  // Remove any bottom margin on the last item.
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Render the class.
+.o-flow {
+  @include o-flow();
+}

@@ -1,0 +1,176 @@
+// Media Object
+// Adapted from [Inuit CSS](https://github.com/inuitcss)
+//
+// --o-media-gutter-default: set this in the root to override for all.
+
+// Media Object: Default Spacing unit
+$o-media-gutter:          1rem !default;
+// Media Object: Tiny Spacing unit
+$o-media-gutter--tiny:    $o-media-gutter / 4 !default;
+// Media Object: Small Spacing unit
+$o-media-gutter--small:   $o-media-gutter / 2 !default;
+// Media Object: Large Spacing unit
+$o-media-gutter--large:   $o-media-gutter * 2 !default;
+// Media Object: Huge Spacing unit
+$o-media-gutter--huge:    $o-media-gutter * 4 !default;
+
+// Enable or disable object classes
+
+// Media Object: Enable the `rev` modifier class
+$o-media-enable--rev:     false !default;
+// Media Object: Enable the `flush` modifier class
+$o-media-enable--flush:   false !default;
+// Media Object: Enable the `tiny` modifier class
+$o-media-enable--tiny:    false !default;
+// Media Object: Enable the `small` modifier class
+$o-media-enable--small:   false !default;
+// Media Object: Enable the `large` modifier class
+$o-media-enable--large:   false !default;
+// Media Object: Enable the `huge` modifier class
+$o-media-enable--huge:    false !default;
+
+// Media Object: The media object is an image to the left, with descriptive
+// content to the right.
+//
+// @param {boolean} $elements - print element classes.
+// @param {boolean} $modifiers - print modifier classes.
+//
+// @example markup
+// <div class="o-media">
+//   <div class="o-media__figure">
+//     <img src="http://placehold.it/135x135" />
+//   </div>
+//   <div class="o-media__body">
+//     <h2>Title to the content</h2>
+//     <p>content</p>
+//   </div>
+// </div>
+@mixin o-media($elements: true, $modifiers: true) {
+  --o-media-gutter: var(--o-media-gutter-default, #{$o-media-gutter});
+  --o-media-gutter--right: var(--o-media-gutter-default, #{$o-media-gutter});
+  --o-media-gutter--left: 0;
+  display: flex;
+  align-items: flex-start;
+
+  // Create element classes.
+  @if ($elements == true) {
+    &__figure {
+      @include o-media__figure();
+    }
+
+    &__body {
+      @include o-media__body();
+    }
+  }
+
+  // Create modifier classes.
+  @if ($modifiers == true) {
+    @if ($o-media-enable--tiny == true) {
+      &--tiny {
+        @include o-media--tiny();
+      }
+    }
+
+    @if ($o-media-enable--small == true) {
+      &--small {
+        @include o-media--small();
+      }
+    }
+
+    @if ($o-media-enable--large == true) {
+      &--large {
+        @include o-media--large();
+      }
+    }
+
+    @if ($o-media-enable--huge == true) {
+      &--huge {
+        @include o-media--huge();
+      }
+    }
+
+    @if ($o-media-enable--rev == true) {
+      &--rev {
+        @include o-media--rev();
+      }
+    }
+
+    @if ($o-media-enable--flush == true) {
+      &--flush {
+        @include o-media--flush();
+      }
+    }
+  }
+}
+
+// Media Object: Figure (image) `Element`
+@mixin o-media__figure {
+  // This spacing hack will be here until Safari supports the "gap" property.
+  margin-right: var(--o-media-gutter--right);
+  margin-left: var(--o-media-gutter--left);
+}
+
+// Media Object: Body (content) `Element`
+@mixin o-media__body {
+  display: block;
+  flex: 1;
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Media Object: Reverse `Modifier`
+//
+// Flips the Figure to the opposite (right) side
+@mixin o-media--rev() {
+  --o-media-gutter--right: 0;
+  --o-media-gutter--left: var(--o-media-gutter, #{$o-media-gutter});
+  flex-direction: row-reverse;
+}
+
+// Media Object: Flush `Modifier`
+//
+// No space between the figure and body
+@mixin o-media--flush() {
+  --o-media-gutter--right: 0;
+  --o-media-gutter--left: 0;
+}
+
+// Media Object: Tiny `Modifier`
+//
+// Greatly shortens space between the figure and body
+@mixin o-media--tiny() {
+  --o-media-gutter: #{$o-media-gutter--tiny};
+  --o-media-gutter--right: var(--o-media-gutter);
+}
+
+// Media Object: Small `Modifier`
+//
+// Shortens space between the figure and body
+@mixin o-media--small() {
+  --o-media-gutter: #{$o-media-gutter--small};
+  --o-media-gutter--right: var(--o-media-gutter);
+}
+
+// Media Object: Large `Modifier`
+//
+// Adds more space between the figure and body
+@mixin o-media--large() {
+  --o-media-gutter: #{$o-media-gutter--large};
+  --o-media-gutter--right: var(--o-media-gutter);
+}
+
+// Media Object: Huge `Modifier`
+//
+// Greatly adds more space between the figure and body
+@mixin o-media--huge() {
+  --o-media-gutter: #{$o-media-gutter--huge};
+  --o-media-gutter--right: var(--o-media-gutter);
+}
+
+// Render the class.
+.o-media {
+  @include o-media();
+}

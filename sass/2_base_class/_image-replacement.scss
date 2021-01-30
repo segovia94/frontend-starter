@@ -1,0 +1,6 @@
+// Image Replacement
+//
+// Hide text visually so that a background image can show instead
+.ir {
+  @include hide-text();
+}

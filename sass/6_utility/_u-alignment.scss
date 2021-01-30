@@ -1,10 +1,10 @@
 // Align Right
 @mixin u-align--right() {
-  @include breakpoint($bp-small--up) {
+  margin-bottom: $spacer;
+
+  @include breakpoint($bp-narrow--up) {
     float: right !important;
-    margin-bottom: $spacer;
     margin-left: $spacer;
-    max-width: 100%; // Needed by ie11.
   }
 }
 
@@ -14,11 +14,11 @@
 
 // Align Left
 @mixin u-align--left() {
-  @include breakpoint($bp-small--up) {
+  margin-bottom: $spacer;
+
+  @include breakpoint($bp-narrow--up) {
     float: left !important;
-    margin-bottom: $spacer;
     margin-right: $spacer;
-    max-width: 100%; // Needed by ie11.
   }
 }
 
@@ -43,7 +43,6 @@
   }
 
   figcaption {
-    font-size: .75rem;
     display: block;
   }
 }

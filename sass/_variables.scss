@@ -65,17 +65,12 @@ $font-weight--bold:       bold !default;
 // Default Spacing Units
 // -------------------------
 
-$spacer:                  1rem !default;
-$spacer--tiny:            $spacer / 4 !default;
-$spacer--small:           $spacer / 2 !default;
-$spacer--large:           $spacer * 2 !default;
-$spacer--huge:            $spacer * 4 !default;
-
-$fixed-spacer:            $font-size !default; // This is 1em at default.
-$fixed-spacer--tiny:      $fixed-spacer / 4 !default;
-$fixed-spacer--small:     $fixed-spacer / 2 !default;
-$fixed-spacer--large:     $fixed-spacer * 2 !default;
-$fixed-spacer--huge:      $fixed-spacer * 4 !default;
+$spacer:                1rem !default;
+$spacer--tiny:          $spacer / 4 !default;
+$spacer--small:         $spacer / 2 !default;
+$spacer--medium:        $spacer * 1.5 !default;
+$spacer--large:         $spacer * 2 !default;
+$spacer--huge:          $spacer * 4 !default;
 
 
 // Radius
@@ -133,7 +128,8 @@ $zindex-modal:            1050 !default;
 // -------------------------
 // Override objects here or enable modifiers like $o-media-enable--flush
 $o-media-gutter:          $spacer !default;
-$o-box-spacing-unit:      $fixed-spacer !default;
+$o-box-spacer:            $spacer !default;
+$o-flow-spacer:           $spacer !default;
 
 
 // Container sizes

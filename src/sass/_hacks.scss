@@ -6,3 +6,12 @@
 // Use this file sparingly!
 //
 // This file should be cleaned out regularly.
+
+
+body {
+  color: red;
+
+  @include breakpoint(500px) {
+    color: blue !important;
+  }
+}

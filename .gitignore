@@ -13,3 +13,6 @@ node_modules
 
 # Custom local gulp config
 gulp-config.local.yml
+
+# Production builds
+build

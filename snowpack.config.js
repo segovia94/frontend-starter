@@ -3,16 +3,17 @@
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
-  // exclude: [
-  //   'node_modules/**/*',
-  //   'sass/**/_*'
-  // ],
+  exclude: [
+    '**/node_modules/**/*',
+    '**/README.md',
+  ],
   mount: {
-    // js: '/',
-    // sass: '/',
+    "public": { url: "/", static: true },
+    "src/sass": "/dist",
+    "src/js": "/dist",
   },
   plugins: [
-    '@snowpack/plugin-sass'
+    '@snowpack/plugin-sass',
   ],
   packageOptions: {
     /* ... */
@@ -21,7 +22,11 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    // out: 'dist',
-    clean: true
+    /* ... */
   },
+  optimize: {
+    // bundle: true,
+    minify: true,
+    // target: 'es2016',
+  }
 };

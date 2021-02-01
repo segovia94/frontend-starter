@@ -11,8 +11,5 @@ node_modules
 # Node will sometimes create a log file on failures
 *.log
 
-# Custom local gulp config
-gulp-config.local.yml
-
 # Production builds
 build

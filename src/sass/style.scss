@@ -1,6 +1,7 @@
 // Main file which will be compiled into style.css
 
 // Mixins and Resets
+@use "./0_tools/globals";
 @use "./0_tools/reset";
 
 // Base HTML
@@ -14,7 +15,7 @@
 @use "./1_base_html/text";
 
 // Base Classes
-@use "./2_base_class/image-replacement";
+@use "./2_base_class/lists" as *;
 
 // Objects
 @use "./3_objects/o-media";
@@ -22,6 +23,7 @@
 @use "./3_objects/o-flow";
 
 // Components
+@use "./4_component/image-replacement";
 
 // Layouts
 @use "./5_layout/container";

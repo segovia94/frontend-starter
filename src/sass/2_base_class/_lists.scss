@@ -1,0 +1,6 @@
+@use "../0_tools/globals" as *;
+
+// Make list flush to the left side.
+.list--flush {
+  @include list-flush();
+}

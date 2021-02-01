@@ -1,3 +1,5 @@
+@use "../0_tools" as *;
+
 // Width Half - Force an element to be half the width of its parent
 .u-width--half {
   @include breakpoint($bp-narrow--up) {

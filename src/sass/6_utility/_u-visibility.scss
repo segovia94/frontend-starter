@@ -1,3 +1,5 @@
+@use "../0_tools" as *;
+
 // Force an element to act as a block
 .u-block {
   display: block !important;

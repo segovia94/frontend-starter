@@ -2,8 +2,8 @@
 
 // Definition Lists
 dl {
-  overflow: hidden;
   margin: 0 0 $spacer;
+  overflow: hidden;
 }
 
 dt {
@@ -14,6 +14,6 @@ dd {
   margin-left: 0;
 }
 
-dd + dt  {
+dd + dt {
   margin-top: $spacer--small;
 }

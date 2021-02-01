@@ -19,9 +19,6 @@
   @each $axis, $props in $xy {
 
     .u-space-#{$type-abbr}#{$axis} {
-      @each $u-space-dir in $props {
-        #{$type}-#{$u-space-dir}: $spacer !important;
-      }
 
       // Small spacing.
       &--small {
@@ -49,6 +46,9 @@
         @each $u-space-dir in $props {
           #{$type}-#{$u-space-dir}: 0 !important;
         }
+      }
+      @each $u-space-dir in $props {
+        #{$type}-#{$u-space-dir}: $spacer !important;
       }
     }
 

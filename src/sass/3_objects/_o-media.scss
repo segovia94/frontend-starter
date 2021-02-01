@@ -4,30 +4,30 @@
 // --o-media-gutter-default: set this in the root to override for all.
 
 // Media Object: Default Spacing unit
-$o-media-gutter:          1rem !default;
+$o-media-gutter: 1rem !default;
 // Media Object: Tiny Spacing unit
-$o-media-gutter--tiny:    $o-media-gutter / 4 !default;
+$o-media-gutter--tiny: $o-media-gutter / 4 !default;
 // Media Object: Small Spacing unit
-$o-media-gutter--small:   $o-media-gutter / 2 !default;
+$o-media-gutter--small: $o-media-gutter / 2 !default;
 // Media Object: Large Spacing unit
-$o-media-gutter--large:   $o-media-gutter * 2 !default;
+$o-media-gutter--large: $o-media-gutter * 2 !default;
 // Media Object: Huge Spacing unit
-$o-media-gutter--huge:    $o-media-gutter * 4 !default;
+$o-media-gutter--huge: $o-media-gutter * 4 !default;
 
 // Enable or disable object classes
 
 // Media Object: Enable the `rev` modifier class
-$o-media-enable--rev:     false !default;
+$o-media-enable--rev: false !default;
 // Media Object: Enable the `flush` modifier class
-$o-media-enable--flush:   false !default;
+$o-media-enable--flush: false !default;
 // Media Object: Enable the `tiny` modifier class
-$o-media-enable--tiny:    false !default;
+$o-media-enable--tiny: false !default;
 // Media Object: Enable the `small` modifier class
-$o-media-enable--small:   false !default;
+$o-media-enable--small: false !default;
 // Media Object: Enable the `large` modifier class
-$o-media-enable--large:   false !default;
+$o-media-enable--large: false !default;
 // Media Object: Enable the `huge` modifier class
-$o-media-enable--huge:    false !default;
+$o-media-enable--huge: false !default;
 
 // Media Object: The media object is an image to the left, with descriptive
 // content to the right.
@@ -49,8 +49,8 @@ $o-media-enable--huge:    false !default;
   --o-media-gutter: var(--o-media-gutter-default, #{$o-media-gutter});
   --o-media-gutter--right: var(--o-media-gutter-default, #{$o-media-gutter});
   --o-media-gutter--left: 0;
-  display: flex;
   align-items: flex-start;
+  display: flex;
 
   // Create element classes.
   @if ($elements == true) {
@@ -105,9 +105,9 @@ $o-media-enable--huge:    false !default;
 
 // Media Object: Figure (image) `Element`
 @mixin o-media__figure {
+  margin-left: var(--o-media-gutter--left);
   // This spacing hack will be here until Safari supports the "gap" property.
   margin-right: var(--o-media-gutter--right);
-  margin-left: var(--o-media-gutter--left);
 }
 
 // Media Object: Body (content) `Element`

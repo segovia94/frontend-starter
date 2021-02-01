@@ -3,8 +3,8 @@
 // Container
 .l-container {
   @include clearfix;
-  width: $container-width;
   margin: 0 auto;
+  width: $container-width;
 
   @include breakpoint($bp-medium--up) {
     width: $container-width--md;

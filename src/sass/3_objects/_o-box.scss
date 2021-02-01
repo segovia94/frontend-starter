@@ -7,28 +7,28 @@
 // --o-box-spacer-default: set this in the root to override for all.
 
 // Box Object: Default Spacing unit
-$o-box-spacer:          1rem !default; // This is 1em at default.
+$o-box-spacer: 1rem !default; // This is 1em at default.
 // Box Object: Tiny Spacing unit
-$o-box-spacer--tiny:    $o-box-spacer / 4 !default;
+$o-box-spacer--tiny: $o-box-spacer / 4 !default;
 // Box Object: Small Spacing unit
-$o-box-spacer--small:   $o-box-spacer / 2 !default;
+$o-box-spacer--small: $o-box-spacer / 2 !default;
 // Box Object: Large Spacing unit
-$o-box-spacer--large:   $o-box-spacer * 2 !default;
+$o-box-spacer--large: $o-box-spacer * 2 !default;
 // Box Object: Huge Spacing unit
-$o-box-spacer--huge:    $o-box-spacer * 4 !default;
+$o-box-spacer--huge: $o-box-spacer * 4 !default;
 
 // Enable or disable object classes
 
 // Box Object: Enable the `flush` modifier class
-$o-box-enable--flush:   false !default;
+$o-box-enable--flush: false !default;
 // Box Object: Enable the `tiny` modifier class
-$o-box-enable--tiny:    false !default;
+$o-box-enable--tiny: false !default;
 // Box Object: Enable the `small` modifier class
-$o-box-enable--small:   false !default;
+$o-box-enable--small: false !default;
 // Box Object: Enable the `large` modifier class
-$o-box-enable--large:   false !default;
+$o-box-enable--large: false !default;
 // Box Object: Enable the `huge` modifier class
-$o-box-enable--huge:    false !default;
+$o-box-enable--huge: false !default;
 
 // Box Object: The box object simply boxes off content.
 //

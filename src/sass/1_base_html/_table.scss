@@ -2,22 +2,22 @@
 
 // Tables
 table {
-  max-width: 100%;
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: $spacer;
+  max-width: 100%;
+  width: 100%;
 }
 
 th {
-  padding: $spacer--small;
   border-bottom: 2px solid $brand--primary;
+  padding: $spacer--small;
   text-align: left;
   vertical-align: bottom;
 
   tfoot & {
-    border-top: 2px solid $brand--primary;
     border-bottom: 0;
+    border-top: 2px solid $brand--primary;
   }
 }
 

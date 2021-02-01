@@ -14,6 +14,10 @@ module.exports = {
   },
   plugins: [
     '@snowpack/plugin-sass',
+    ["@snowpack/plugin-run-script", {
+      "cmd": "npm run lint",
+      "watch": "npm run lint:watch"
+    }]
   ],
   packageOptions: {
     /* ... */

@@ -3,8 +3,8 @@
 // Text-Related Elements
 
 p {
-  margin-top: 0;
   margin-bottom: $spacer;
+  margin-top: 0;
 }
 
 strong {
@@ -13,17 +13,17 @@ strong {
 
 // Blockquote
 blockquote {
-  font-size: 1.125rem;
   border-left: 5px solid $brand--primary;
+  font-size: 1.125rem;
   padding-left: $spacer--large;
 }
 
 // Horizontal Rule
 hr {
-  display: block;
   border: 0;
-  height: 1px;
   border-top: 1px solid $hr-border;
+  display: block;
+  height: 1px;
   margin: $spacer--large 0;
   padding: 0;
 }

@@ -2,44 +2,44 @@
 
 // Forms
 fieldset {
+  border: 0;
+  margin: 0;
   min-width: 0;
   padding: 0;
-  margin: 0;
-  border: 0;
 }
 
 legend {
+  color: inherit;
   display: block;
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  margin-bottom: $spacer--small;
   font-size: 1.5rem;
   line-height: inherit;
-  color: inherit;
+  margin-bottom: $spacer--small;
+  max-width: 100%;
+  padding: 0;
   white-space: normal;
+  width: 100%;
 }
 
 label {
   display: block;
-  padding-bottom: $spacer--tiny;
   font-weight: $font-weight--bold;
+  padding-bottom: $spacer--tiny;
 }
 
 input,
 select,
 textarea {
-  border: 1px solid $input-border--color;
-  border-radius: 0;
-  padding: $spacer--tiny ($spacer--small + $spacer--tiny);
   background-color: $input-bg;
   background-image: none;
+  border: 1px solid $input-border--color;
+  border-radius: 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   color: $input-color;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   margin: 0;
+  padding: $spacer--tiny ($spacer--small + $spacer--tiny);
 }
 
 input,
@@ -73,7 +73,7 @@ button:not(:disabled),
 }
 
 // Override content-box in Normalize (* isn't specific enough)
-input[type="search"] {
+[type="search"] {
   box-sizing: border-box;
 }
 

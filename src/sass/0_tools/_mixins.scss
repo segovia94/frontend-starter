@@ -9,12 +9,12 @@
 }
 
 @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: math.unit($min-vw);
-  $u2: math.unit($max-vw);
-  $u3: math.unit($min-font-size);
-  $u4: math.unit($max-font-size);
+  $unit1: math.unit($min-vw);
+  $unit2: math.unit($max-vw);
+  $unit3: math.unit($min-font-size);
+  $unit4: math.unit($max-font-size);
 
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+  @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
     & {
       font-size: $min-font-size;
       @media screen and (min-width: $min-vw) {
@@ -30,9 +30,9 @@
 // Clearfix
 @mixin clearfix() {
   &:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
   }
 }
 
@@ -55,9 +55,9 @@
 // Hide text for image replacement
 @mixin hide-text($important: null) {
   $bang: if($important, !important, null);
+  overflow: hidden $bang;
   text-indent: 110% $bang;
   white-space: nowrap $bang;
-  overflow: hidden $bang;
 }
 
 /// Hide Visually
@@ -89,16 +89,16 @@
 // @param {string} $width [100%] - How wide a single icon/image from the sprite will be
 // @param {string} $padding-bottom [100%] - Total height the icon/image will be
 @mixin responsive-sprite($sprite-url, $images: (), $width: 100%, $padding-bottom: 100%) {
-  display: block;
-  padding-bottom: $padding-bottom;
-  height: 0;
-  width: $width;
-  background-image: url($sprite-url);
-  background-repeat: no-repeat;
-  background-size: 100% * list.length($images);
-  background-position: 0 0;
 
   $ratio: 100% / (list.length($images) - 1);
+  background-image: url($sprite-url);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% * list.length($images);
+  display: block;
+  height: 0;
+  padding-bottom: $padding-bottom;
+  width: $width;
 
   @for $i from 1 through list.length($images) {
     $image: list.nth($images, $i);
@@ -117,12 +117,12 @@
 // @param {string} $width [50px] - How wide a single icon/image from the sprite will be
 // @param {string} $height [50px] - Total height the icon/image will be
 @mixin horizontal-sprite($sprite-url, $images: (), $width: 50px, $height: 50px) {
+  background-image: url($sprite-url);
+  background-position: 0 0;
+  background-repeat: no-repeat;
   display: block;
   height: $height;
   width: $width;
-  background-image: url($sprite-url);
-  background-repeat: no-repeat;
-  background-position: 0 0;
 
   @for $i from 1 through list.length($images) {
     $image: list.nth($images, $i);

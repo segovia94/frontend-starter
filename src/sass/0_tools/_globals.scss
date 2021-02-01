@@ -2,7 +2,7 @@
 @forward "../../../node_modules/breakpoint-sass/stylesheets/breakpoint";
 
 // Site-wide variables
-@forward "../variables";
+@forward "variables";
 
 // Custom Mixins
-@forward "./mixins";
+@forward "mixins";

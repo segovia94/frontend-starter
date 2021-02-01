@@ -1,40 +1,40 @@
 // Main file which will be compiled into style.css
 
 // Mixins and Resets
-@use "./0_tools/globals";
-@use "./0_tools/reset";
+@use "0_tools/globals";
+@use "0_tools/reset";
 
 // Base HTML
-@use "./1_base_html/forms";
-@use "./1_base_html/headings";
-@use "./1_base_html/links";
-@use "./1_base_html/lists";
-@use "./1_base_html/main";
-@use "./1_base_html/media";
-@use "./1_base_html/table";
-@use "./1_base_html/text";
+@use "1_base_html/forms";
+@use "1_base_html/headings";
+@use "1_base_html/links";
+@use "1_base_html/lists";
+@use "1_base_html/main";
+@use "1_base_html/media";
+@use "1_base_html/table";
+@use "1_base_html/text";
 
 // Base Classes
-@use "./2_base_class/lists" as *;
+@use "2_base_class/lists" as *;
 
 // Objects
-@use "./3_objects/o-media";
-@use "./3_objects/o-box";
-@use "./3_objects/o-flow";
+@use "3_objects/o-media";
+@use "3_objects/o-box";
+@use "3_objects/o-flow";
 
 // Components
-@use "./4_component/image-replacement";
+@use "4_component/image-replacement";
 
 // Layouts
-@use "./5_layout/container";
+@use "5_layout/container";
 
 // Utility Overrides
-@use "./6_utility/u-alignment";
-@use "./6_utility/u-clearfix";
-@use "./6_utility/u-coloring";
-@use "./6_utility/u-space";
-@use "./6_utility/u-visibility";
-@use "./6_utility/u-widths";
+@use "6_utility/u-alignment";
+@use "6_utility/u-clearfix";
+@use "6_utility/u-coloring";
+@use "6_utility/u-space";
+@use "6_utility/u-visibility";
+@use "6_utility/u-widths";
 
 // Hacks
-@use "./hacks";
+@use "hacks";

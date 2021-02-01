@@ -13,8 +13,8 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "lint": "eslint src --ext .js,jsx,.ts,.tsx",
-    "lint:css": "stylelint '**/*.scss'",
-    "lint:css-fix": "stylelint '**/*.scss' --fix",
+    "lint:css": "stylelint '**/sass/**/*.scss'",
+    "lint:css-fix": "stylelint '**/sass/**/*.scss' --fix",
     "lint:watch": "esw -w --clear src --ext .js,jsx,.ts,.tsx"
   },
   "devDependencies": {
